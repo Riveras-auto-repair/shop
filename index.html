@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="New tires at low prices, tire installation and auto repair in Lilburn, GA. Get a quote by text. Hablamos español.">
+<meta name="theme-color" content="#16202f">
+<title>Rivera's Auto Repair | Tires and Auto Repair in Lilburn, GA</title>
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: a shop-window page. Dark asphalt band up top with the pitch and the quote form side by side,
+   then three ways to pick a tire, services, three steps, the tire size guide, and where to find the shop.
+   Every customer-facing string has an English and a Spanish version, switched from the top bar. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --band: #16202f;
+  --band-fg: #f1f4f8;
+  --band-muted: #a9b5c6;
+  --band-line: #33415a;
+  --fg: #16202f;
+  --muted: #566376;
+  --line: #d5dbe4;
+  --tag: #ffc61a;
+  --tag-ink: #1a1503;
+  --accent: #1c5fd6;
+  --accent-fg: #ffffff;
+  --ok: #17794a;
+  --bad: #c62828;
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --r: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e141d; --surface: #18222f; --band: #0a0f16; --band-fg: #f1f4f8; --band-muted: #9aa8bb; --band-line: #2b3848;
+    --fg: #e9edf3; --muted: #9aa8bb; --line: #2b3848; --tag: #ffc61a; --tag-ink: #1a1503;
+    --accent: #6ea4ff; --accent-fg: #08111f; --ok: #5fd39a; --bad: #ff8a80; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e141d; --surface: #18222f; --band: #0a0f16; --band-fg: #f1f4f8; --band-muted: #9aa8bb; --band-line: #2b3848;
+  --fg: #e9edf3; --muted: #9aa8bb; --line: #2b3848; --tag: #ffc61a; --tag-ink: #1a1503;
+  --accent: #6ea4ff; --accent-fg: #08111f; --ok: #5fd39a; --bad: #ff8a80; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); line-height: 1.02; margin: 0; text-wrap: balance; text-transform: uppercase; letter-spacing: 0.01em; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); font-weight: 800; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 700; }
+h3 { font-size: 1.35rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+.eyebrow { font-family: var(--display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.95rem; }
+
+/* placeholder marker: anything still waiting on real shop info */
+.ph { border-bottom: 2px dashed var(--tag); padding-bottom: 1px; }
+
+.draft { background: var(--tag); color: var(--tag-ink); font-size: 0.92rem; font-weight: 500; }
+.draft .wrap { padding-block: 8px; }
+
+.band { background: var(--band); color: var(--band-fg); }
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-block: 16px; }
+.brand { font-family: var(--display); font-weight: 800; font-size: 1.7rem; text-transform: uppercase; letter-spacing: 0.02em; }
+.brand span { color: var(--tag); }
+.topright { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+.top .phone { font-family: var(--display); font-weight: 700; font-size: 1.35rem; font-variant-numeric: tabular-nums; }
+.top .phone a { color: inherit; text-decoration: none; }
+.top small { display: block; color: var(--band-muted); font-family: var(--body); font-weight: 400; font-size: 0.82rem; }
+.lang { display: inline-flex; border: 1px solid var(--band-line); border-radius: 4px; overflow: hidden; }
+.lang button { font: inherit; font-weight: 600; font-size: 0.9rem; background: transparent; color: var(--band-muted); border: 0; padding: 7px 12px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--tag); color: var(--tag-ink); }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; padding-block: 24px 56px; align-items: start; }
+.pitch { display: flex; flex-direction: column; gap: 18px; padding-top: 12px; min-width: 0; }
+.pitch .eyebrow { color: var(--tag); }
+.pitch p.lead { color: var(--band-muted); font-size: 1.15rem; max-width: 34em; }
+.points { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 8px; }
+.points li { display: flex; gap: 10px; align-items: baseline; }
+.points li::before { content: ""; flex: none; width: 10px; height: 10px; background: var(--tag); transform: translateY(-1px); }
+
+/* quote form */
+.quote { background: var(--surface); color: var(--fg); border-radius: var(--r); padding: 22px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.quote > p { color: var(--muted); font-size: 0.95rem; }
+.row { display: grid; gap: 12px; grid-template-columns: 0.7fr 1fr 1fr; }
+.row.two { grid-template-columns: 1fr 1fr; }
+.field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.tirefields { display: flex; flex-direction: column; gap: 12px; }
+label, legend { font-weight: 600; font-size: 0.9rem; }
+.hint { color: var(--muted); font-size: 0.82rem; font-weight: 400; }
+input[type="text"], input[type="tel"], input[type="number"], select, textarea {
+  font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 10px 11px; width: 100%; min-width: 0;
+}
+textarea { resize: vertical; min-height: 68px; }
+fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.checks { display: flex; flex-wrap: wrap; gap: 8px; }
+.checks label { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--line); border-radius: 4px; padding: 7px 11px; font-weight: 500; cursor: pointer; background: var(--bg); }
+.checks label:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.checks input { accent-color: var(--accent); width: 16px; height: 16px; margin: 0; }
+button.go { font-family: var(--display); font-weight: 700; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--tag); color: var(--tag-ink); border: 0; border-radius: 4px; padding: 13px 18px; cursor: pointer; }
+button.go:hover { filter: brightness(1.06); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.err { color: var(--bad); font-size: 0.9rem; font-weight: 500; }
+
+.sent { display: flex; flex-direction: column; gap: 14px; }
+.sent h3 { color: var(--ok); }
+.ticket { border: 1px dashed var(--line); border-radius: 4px; padding: 12px 14px; background: var(--bg); display: grid; gap: 4px; font-size: 0.95rem; }
+.ticket b { font-weight: 600; }
+.linkbtn { font: inherit; background: none; border: 0; padding: 0; color: var(--accent); text-decoration: underline; cursor: pointer; align-self: flex-start; }
+
+section { padding-block: 52px; }
+.head { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; max-width: 42em; }
+.head p { color: var(--muted); }
+
+/* three ways to pick a tire */
+.picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.pick { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; }
+.pick .tagline { background: var(--tag); color: var(--tag-ink); padding: 12px 16px 10px; font-family: var(--display); font-weight: 800; font-size: 1.7rem; line-height: 1.05; text-transform: uppercase; }
+.pick .info { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.pick .info p { color: var(--muted); font-size: 0.97rem; flex: 1; }
+.ctarow { margin-top: 18px; }
+.cta { display: inline-block; font-family: var(--display); font-weight: 700; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--tag); color: var(--tag-ink); border-radius: 4px; padding: 11px 20px; text-decoration: none; }
+.cta:hover { filter: brightness(1.06); }
+.slots { display: grid; gap: 16px; }
+.slots.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.slots.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.slot { border: 2px dashed var(--tag); border-radius: var(--r); padding: 18px; color: var(--muted); font-size: 0.95rem; display: flex; flex-direction: column; gap: 8px; min-height: 120px; }
+.stars { color: var(--tag); font-size: 1.3rem; letter-spacing: 2px; }
+.review { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+.review p { font-size: 0.98rem; }
+.rnote { color: var(--muted); font-size: 0.8rem; font-style: italic; }
+.rnote:empty { display: none; }
+.slot.photo { aspect-ratio: 4 / 3; min-height: 0; align-items: center; justify-content: center; text-align: center; }
+.promise { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; background: var(--surface); }
+
+/* services */
+.services { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.svc { padding: 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; }
+.svc p { color: var(--muted); font-size: 0.97rem; }
+
+/* steps */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; counter-reset: s; }
+.steps li { counter-increment: s; display: flex; flex-direction: column; gap: 8px; }
+.steps li::before { content: counter(s); font-family: var(--display); font-weight: 800; font-size: 3rem; line-height: 1; color: var(--tag); }
+.steps p { color: var(--band-muted); }
+
+/* sidewall helper */
+.sidewall { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: center; }
+.sidewall svg { width: 100%; height: auto; max-width: 220px; }
+.sidewall .lede { color: var(--muted); margin-top: 8px; max-width: 38em; }
+.sidewall dl { margin: 12px 0 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 16px; }
+.sidewall dt { font-family: var(--display); font-weight: 700; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.sidewall dd { margin: 0; color: var(--muted); }
+
+/* visit */
+.visit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.visit > div { display: flex; flex-direction: column; gap: 6px; }
+.visit .eyebrow { color: var(--muted); }
+.visit .big { font-family: var(--display); font-weight: 700; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.visit .big a { color: inherit; text-decoration: none; }
+.visit .sub { color: var(--muted); font-size: 0.95rem; }
+.hours { display: grid; grid-template-columns: auto auto; gap: 2px 18px; justify-content: start; font-variant-numeric: tabular-nums; }
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; }
+footer .wrap { padding-block: 20px 28px; }
+
+/* shop-only request list */
+.ownerlink { margin-left: 8px; color: var(--muted); }
+.backlink { color: var(--tag); font-weight: 600; }
+.empty { border: 1px dashed var(--line); border-radius: var(--r); padding: 22px; color: var(--muted); }
+.reqs { display: grid; gap: 16px; }
+.req { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.req .who { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
+.req .who strong { font-family: var(--display); font-weight: 700; font-size: 1.5rem; text-transform: uppercase; }
+.req .who .tel { font-family: var(--display); font-weight: 700; font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+.req .when { color: var(--muted); font-size: 0.85rem; }
+.req .lines { display: grid; gap: 3px; font-size: 0.97rem; }
+.req .lines b { font-weight: 600; }
+.req .acts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; border-top: 1px solid var(--line); padding-top: 12px; }
+.req .acts select { width: auto; padding: 7px 9px; }
+.req .acts a, .req .acts button { font: inherit; font-size: 0.92rem; font-weight: 600; border: 1px solid var(--line); background: var(--bg); color: var(--fg); border-radius: 4px; padding: 7px 11px; cursor: pointer; text-decoration: none; }
+.req .acts a { color: var(--accent); }
+.req .acts .del { margin-left: auto; color: var(--bad); }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .picks, .slots.three { grid-template-columns: minmax(0, 1fr); }
+  .slots.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps, .visit { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .sidewall { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  section { padding-block: 40px; }
+}
+.herocta { display: none; align-self: flex-start; }
+.mbar { display: none; }
+@media (max-width: 860px) {
+  /* phones: the form sits below the pitch, so give a button to jump to it and keep contact one tap away */
+  .herocta { display: inline-block; }
+  .mbar { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    background: var(--band); border-top: 1px solid var(--band-line);
+    padding: 8px max(12px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+  .mbar a { font-family: var(--display); font-weight: 700; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.04em; text-align: center; text-decoration: none;
+    color: var(--band-fg); border: 1px solid var(--band-line); border-radius: 4px; padding: 11px 6px; }
+  .mbar a.main { background: var(--tag); color: var(--tag-ink); border-color: var(--tag); }
+  #site { padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px)); }
+  .draft { font-size: 0.82rem; }
+  .top { padding-block: 12px; gap: 8px 16px; }
+  .brand { font-size: 1.5rem; }
+  .hero { padding-block: 12px 36px; }
+  .pitch { gap: 14px; padding-top: 4px; }
+  .pitch p.lead { font-size: 1.05rem; }
+  .quote { padding: 18px 16px; }
+  .checks { display: grid; grid-template-columns: 1fr 1fr; }
+  .checks label { padding: 11px 10px; min-width: 0; }
+  input[type="text"], input[type="tel"], input[type="number"], select, textarea { padding: 12px 11px; }
+  .lang button { padding: 9px 13px; }
+}
+@media (max-width: 480px) {
+  .row.two { grid-template-columns: minmax(0, 1fr); }
+  .row.two.keep { grid-template-columns: 1fr 1fr; }
+  .row.car { grid-template-columns: 0.6fr 1fr; }
+  .row.car .field:last-child { grid-column: 1 / -1; }
+  .services { grid-template-columns: minmax(0, 1fr); }
+  .slots.four { gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div id="site">
+<div class="draft"><div class="wrap">Preview. This website is not live yet. The dashed yellow boxes are waiting for real photos.</div></div>
+
+<div class="band">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">Rivera's <span>Auto Repair</span></div>
+      <div class="topright">
+        <div class="phone"><a href="tel:+14432699338">(443) 269-9338</a><small data-i18n="top.sub">Call or text for a quote</small></div>
+        <div class="lang" role="group" aria-label="Language / Idioma">
+          <button type="button" id="lang-en" aria-pressed="true">English</button>
+          <button type="button" id="lang-es" aria-pressed="false">Español</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="pitch">
+        <p class="eyebrow" data-i18n="hero.eyebrow">New tires, any size, any brand</p>
+        <h1 data-i18n="hero.h1">Tires for less. Installed right.</h1>
+        <p class="lead" data-i18n="hero.lead">Tell us what you drive and which tires you want. We'll text you a price today. Buy the tires on their own, or have them mounted and balanced at our shop.</p>
+        <ul class="points">
+          <li data-i18n="hero.p1">Low prices on new tires, any size</li>
+          <li data-i18n="hero.p2">Brakes, oil changes and any repair at the same shop</li>
+          <li data-i18n="hero.p3">Hablamos español. Ask for help in Spanish any time.</li>
+        </ul>
+        <a class="cta herocta" href="#quote" data-i18n="hero.cta">Get a quote today</a>
+      </div>
+
+      <form class="quote" id="quote-form" novalidate>
+        <h2 id="quote" data-i18n="form.title">Get a quote today</h2>
+        <p data-i18n="form.sub">Takes about a minute. No payment, no obligation.</p>
+        <div class="row car">
+          <div class="field"><label for="q-year" data-i18n="form.year">Year</label><input id="q-year" type="number" inputmode="numeric" min="1980" max="2027" placeholder="2010"></div>
+          <div class="field"><label for="q-make" data-i18n="form.make">Make</label><input id="q-make" type="text" placeholder="Honda" autocomplete="off"></div>
+          <div class="field"><label for="q-model" data-i18n="form.model">Model</label><input id="q-model" type="text" placeholder="Civic" autocomplete="off"></div>
+        </div>
+        <fieldset>
+          <legend data-i18n="form.need">What do you need?</legend>
+          <div class="checks">
+            <label><input type="checkbox" id="n-tires" checked> <span data-i18n="need.tires">Tires</span></label>
+            <label><input type="checkbox" id="n-install"> <span data-i18n="need.install">Tire installation</span></label>
+            <label><input type="checkbox" id="n-brakes"> <span data-i18n="need.brakes">Brakes</span></label>
+            <label><input type="checkbox" id="n-oil"> <span data-i18n="need.oil">Oil change</span></label>
+            <label><input type="checkbox" id="n-repair"> <span data-i18n="need.repair">Other repair</span></label>
+          </div>
+        </fieldset>
+        <div class="tirefields" id="tire-fields">
+          <div class="row two keep">
+            <div class="field">
+              <label for="q-size"><span data-i18n="form.size">Tire size</span> <span class="hint" data-i18n="form.optional">(optional)</span></label>
+              <input id="q-size" type="text" placeholder="205/55R16" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="q-count" data-i18n="form.count">How many tires?</label>
+              <input id="q-count" type="number" inputmode="numeric" min="1" max="99" value="4">
+            </div>
+          </div>
+          <div class="row two">
+            <div class="field">
+              <label for="q-type" data-i18n="form.type">Type of tire</label>
+              <select id="q-type">
+                <option value="unsure" data-i18n="type.unsure">Not sure, recommend one</option>
+                <option value="allseason" data-i18n="type.allseason">All-season (everyday driving)</option>
+                <option value="touring" data-i18n="type.touring">Touring (quiet, long lasting)</option>
+                <option value="performance" data-i18n="type.performance">Performance / summer</option>
+                <option value="winter" data-i18n="type.winter">Winter / snow</option>
+                <option value="at" data-i18n="type.at">All-terrain (A/T)</option>
+                <option value="mt" data-i18n="type.mt">Mud-terrain / off-road (M/T)</option>
+                <option value="highway" data-i18n="type.highway">Highway (trucks and SUVs)</option>
+                <option value="lt" data-i18n="type.lt">Commercial / heavy duty (LT)</option>
+                <option value="trailer" data-i18n="type.trailer">Trailer (ST)</option>
+                <option value="runflat" data-i18n="type.runflat">Run-flat</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="q-pref" data-i18n="form.pref">What matters most?</label>
+              <select id="q-pref">
+                <option value="low" data-i18n="pref.low">Lowest price</option>
+                <option value="mid" data-i18n="pref.mid">Best value</option>
+                <option value="brand" data-i18n="pref.brand">A specific brand or tire</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="q-tire"><span data-i18n="form.tire">Brand or tire you want</span> <span class="hint" data-i18n="form.optional">(optional)</span></label>
+            <input id="q-tire" type="text" autocomplete="off" data-i18n-ph="form.tire.ph" placeholder="Any brand or model">
+          </div>
+        </div>
+        <div class="field">
+          <label for="q-notes"><span data-i18n="form.notes">Anything else we should know?</span> <span class="hint" data-i18n="form.optional">(optional)</span></label>
+          <textarea id="q-notes" data-i18n-ph="form.notes.ph" placeholder="Grinding noise when I brake"></textarea>
+        </div>
+        <div class="row two">
+          <div class="field"><label for="q-name" data-i18n="form.name">Your name</label><input id="q-name" type="text" autocomplete="name"></div>
+          <div class="field"><label for="q-phone" data-i18n="form.phone">Phone number</label><input id="q-phone" type="tel" autocomplete="tel" data-i18n-ph="form.phone.ph" placeholder="We'll text your price"></div>
+        </div>
+        <p class="err" id="q-err" hidden></p>
+        <button class="go" type="submit" data-i18n="form.send">Send my quote request</button>
+      </form>
+
+      <div class="quote sent" id="quote-sent" hidden>
+        <h3 data-i18n="sent.title">Request received</h3>
+        <p><span data-i18n="sent.thanks">Thanks,</span> <span id="s-name"></span>. <span data-i18n="sent.body">We'll text your price as soon as we can during shop hours to</span> <span id="s-phone"></span>.</p>
+        <div class="ticket" id="s-ticket"></div>
+        <p class="hint"><span data-i18n="sent.preview">This is a preview, so nothing was sent yet.</span> <a href="#requests">See it in the shop's request list</a></p>
+        <button class="linkbtn" type="button" id="s-again" data-i18n="sent.again">Send another request</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <h2 data-i18n="pick.title">Pick any tire. We'll find it.</h2>
+      <p data-i18n="pick.sub">Choose how you want to shop. We check what's available for your car and text you the price.</p>
+    </div>
+    <div class="picks">
+      <div class="pick"><div class="tagline" data-i18n="pick.low.t">Lowest price</div><div class="info"><p data-i18n="pick.low.d">You need safe new tires and want to spend as little as possible. We'll give you the lowest price we can on the tires you want.</p></div></div>
+      <div class="pick"><div class="tagline" data-i18n="pick.mid.t">Best value</div><div class="info"><p data-i18n="pick.mid.d">A step up for longer life and a quieter ride, without paying top dollar. We'll suggest a good tire for how you drive.</p></div></div>
+      <div class="pick"><div class="tagline" data-i18n="pick.brand.t">The tire you want</div><div class="info"><p data-i18n="pick.brand.d">Already know the brand or the exact tire? Tell us which one and we'll look for it.</p></div></div>
+    </div>
+    <p class="promise" data-i18n="pick.promise"><strong>Our promise:</strong> we'll tell you if we can get the tire you picked. If we can't, we'll offer similar tires so you can choose. How soon a tire arrives depends on the tire, so give us a call at (443) 269-9338 and we'll get back to you as soon as possible.</p>
+    <p class="ctarow"><a class="cta" href="#quote" data-i18n="pick.cta">Get my quote</a></p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-i18n="svc.title">More than tires</h2>
+      <p data-i18n="svc.sub">One shop for the whole car, from an oil change to an engine swap. If it's on your car, we can work on it.</p>
+    </div>
+    <div class="services">
+      <div class="svc"><h3 data-i18n="svc.1.t">Tire installation</h3><p data-i18n="svc.1.d">Mounting and balancing for the tires you buy from us.</p></div>
+      <div class="svc"><h3 data-i18n="svc.2.t">Brakes</h3><p data-i18n="svc.2.d">Pads, rotors and brake fluid, with a price before any work starts.</p></div>
+      <div class="svc"><h3 data-i18n="svc.3.t">Oil changes</h3><p data-i18n="svc.3.d">Conventional or synthetic oil for your car.</p></div>
+      <div class="svc"><h3 data-i18n="svc.5.t">Check engine light</h3><p data-i18n="svc.5.d">We read the code and tell you what it means in plain words.</p></div>
+      <div class="svc"><h3 data-i18n="svc.6.t">Engine work and swaps</h3><p data-i18n="svc.6.d">Big jobs too: engine repair, engine swaps and transmission work.</p></div>
+      <div class="svc"><h3 data-i18n="svc.7.t">Suspension and steering</h3><p data-i18n="svc.7.d">Shocks, struts, ball joints and tie rods for a tight, safe ride.</p></div>
+      <div class="svc"><h3 data-i18n="svc.8.t">Battery and electrical</h3><p data-i18n="svc.8.d">Batteries, alternators, starters and wiring problems.</p></div>
+      <div class="svc"><h3 data-i18n="svc.9.t">Anything else</h3><p data-i18n="svc.9.d">Don't see your problem here? Tell us what's going on and we'll quote it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-i18n="rev.title">What customers say</h2>
+      <p data-i18n="rev.sub">Real reviews from people who brought their cars to us.</p>
+    </div>
+    <div class="slots three" style="align-items:start">
+      <blockquote class="review"><span class="stars" aria-label="5 stars">★★★★★</span><p data-i18n="rev.1">Great prices, friendly people, took care of me. Was fast and people were nice.</p><span class="rnote" data-i18n="rev.1n"></span></blockquote>
+      <blockquote class="review"><span class="stars" aria-label="5 stars">★★★★★</span><p data-i18n="rev.2">Good work, very friendly people, did a great job. My car is still great after a couple months.</p><span class="rnote" data-i18n="rev.2n">Translated from Spanish</span></blockquote>
+      <blockquote class="review"><span class="stars" aria-label="5 stars">★★★★★</span><p data-i18n="rev.3">This is my go-to shop for any of my problems.</p><span class="rnote" data-i18n="rev.3n"></span></blockquote>
+    </div>
+    <div class="head" style="margin-top:40px">
+      <h2 data-i18n="work.title">Cars we've worked on</h2>
+      <p data-i18n="work.sub">A few of the jobs that have come through the shop.</p>
+    </div>
+    <div class="slots four">
+      <div class="slot photo">Photo goes here</div>
+      <div class="slot photo">Photo goes here</div>
+      <div class="slot photo">Photo goes here</div>
+      <div class="slot photo">Photo goes here</div>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <section>
+    <div class="wrap">
+      <div class="head"><h2 data-i18n="how.title">How it works</h2></div>
+      <ol class="steps">
+        <li><h3 data-i18n="how.1.t">Tell us your car</h3><p data-i18n="how.1.d">Fill in the year, make and model, and what you need done.</p></li>
+        <li><h3 data-i18n="how.2.t">Get your price by text</h3><p data-i18n="how.2.d">A real person checks the price and texts it to you, in English or Spanish.</p></li>
+        <li><h3 data-i18n="how.3.t">Come by the shop</h3><p data-i18n="how.3.d">Pick up your tires or have them installed at the shop in Lilburn.</p></li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sidewall">
+      <svg viewBox="0 0 220 220" role="img" aria-label="205/55R16">
+        <defs><path id="arc" d="M 30 110 A 80 80 0 0 1 190 110"/></defs>
+        <circle cx="110" cy="110" r="104" fill="var(--band)"/>
+        <circle cx="110" cy="110" r="62" fill="var(--bg)"/>
+        <circle cx="110" cy="110" r="52" fill="none" stroke="var(--line)" stroke-width="3"/>
+        <circle cx="110" cy="110" r="12" fill="var(--line)"/>
+        <text font-family="Barlow Condensed, Arial Narrow, Arial, sans-serif" font-weight="700" font-size="24" letter-spacing="3" fill="var(--tag)"><textPath href="#arc" startOffset="50%" text-anchor="middle">205/55R16</textPath></text>
+      </svg>
+      <div>
+        <h2 data-i18n="size.title">Where to find your tire size</h2>
+        <p class="lede" data-i18n="size.lede">Look at the side of any tire on your car. You'll see a code like 205/55R16. Type it into the quote form and we can price your tires faster.</p>
+        <dl>
+          <dt>205</dt><dd data-i18n="size.1">Width of the tire in millimeters</dd>
+          <dt>55</dt><dd data-i18n="size.2">Height of the sidewall, as a percent of the width</dd>
+          <dt>R16</dt><dd data-i18n="size.3">Fits a 16 inch wheel</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2 data-i18n="visit.title">Visit the shop</h2></div>
+    <div class="visit">
+      <div>
+        <p class="eyebrow" data-i18n="visit.addr">Address</p>
+        <p>4304 Lilburn Industrial Way SW<br>Lilburn, GA 30047</p>
+        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=4304+Lilburn+Industrial+Way+SW+Lilburn+GA+30047" target="_blank" rel="noopener" data-i18n="visit.map">Open in Google Maps</a></p>
+      </div>
+      <div>
+        <p class="eyebrow" data-i18n="visit.hours">Hours</p>
+        <div class="hours"><span data-i18n="visit.monsat">Monday to Saturday</span><span>9:00 AM – 6:00 PM</span><span data-i18n="visit.sun">Sunday</span><span data-i18n="visit.closed">Closed</span></div>
+      </div>
+      <div>
+        <p class="eyebrow" data-i18n="visit.call">Call or text</p>
+        <p class="big"><a href="tel:+14432699338">(443) 269-9338</a></p>
+        <p class="sub" data-i18n="visit.spanish">Hablamos español. If you need help in Spanish, just ask.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>Rivera's Auto Repair.</span> <span data-i18n="foot">Tire prices depend on size and availability. Installation is quoted separately.</span> <a class="ownerlink" href="#requests">Shop: view quote requests</a></div></footer>
+<nav class="mbar" aria-label="Contact">
+  <a href="tel:+14432699338" data-i18n="bar.call">Call</a>
+  <a href="sms:+14432699338" data-i18n="bar.text">Text</a>
+  <a class="main" href="#quote" data-i18n="bar.quote">Get a quote</a>
+</nav>
+</div>
+
+<div id="owner" hidden>
+  <div class="band">
+    <div class="wrap">
+      <div class="top">
+        <div class="brand">Rivera's <span>Quote requests</span></div>
+        <a class="backlink" href="#home">Back to the website</a>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <h2>What people asked for</h2>
+        <p>Every quote request shows up here, newest first. Look up the tire, then call or text the customer with a price.</p>
+        <p class="hint">Preview: requests are saved only in this browser on this device. On the live website they will reach you from every customer.</p>
+      </div>
+      <p class="empty" id="o-empty">No requests yet. Go back to the website and fill in the quote form. It will show up here.</p>
+      <div class="reqs" id="o-list"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var ES = {
+    'hero.cta': 'Pida su cotización hoy', 'bar.call': 'Llamar', 'bar.text': 'Texto', 'bar.quote': 'Cotizar',
+    'top.sub': 'Llame o mande un texto para su cotización',
+    'hero.eyebrow': 'Llantas nuevas, cualquier medida, cualquier marca',
+    'hero.h1': 'Llantas por menos. Bien instaladas.',
+    'hero.lead': 'Díganos qué carro maneja y qué llantas quiere. Le mandamos el precio por texto hoy mismo. Compre solo las llantas, o se las montamos y balanceamos en nuestro taller.',
+    'hero.p1': 'Precios bajos en llantas nuevas de cualquier medida',
+    'hero.p2': 'Frenos, cambios de aceite y cualquier reparación en el mismo taller',
+    'hero.p3': 'Hablamos español. Lo atendemos en su idioma.',
+    'form.title': 'Pida su cotización hoy',
+    'form.sub': 'Toma como un minuto. Sin pago y sin compromiso.',
+    'form.year': 'Año', 'form.make': 'Marca', 'form.model': 'Modelo',
+    'form.need': '¿Qué necesita?',
+    'need.tires': 'Llantas', 'need.install': 'Instalación de llantas', 'need.brakes': 'Frenos', 'need.oil': 'Cambio de aceite', 'need.repair': 'Otra reparación',
+    'form.size': 'Medida de la llanta', 'form.optional': '(opcional)',
+    'form.count': '¿Cuántas llantas?',
+    'form.pref': '¿Qué es lo más importante?',
+    'form.type': 'Tipo de llanta',
+    'type.unsure': 'No estoy seguro, recomiéndeme una', 'type.allseason': 'Toda temporada (uso diario)', 'type.touring': 'Touring (silenciosa y duradera)', 'type.performance': 'Deportiva / de verano', 'type.winter': 'Invierno / nieve', 'type.at': 'Todo terreno (A/T)', 'type.mt': 'Lodo / off-road (M/T)', 'type.highway': 'Carretera (camionetas y SUV)', 'type.lt': 'Comercial / carga pesada (LT)', 'type.trailer': 'Remolque / traila (ST)', 'type.runflat': 'Run-flat',
+    'pref.low': 'El precio más bajo', 'pref.mid': 'La mejor por su precio', 'pref.brand': 'Una marca o llanta específica',
+    'form.tire': 'Marca o llanta que quiere', 'form.tire.ph': 'Cualquier marca o modelo',
+    'form.notes': '¿Algo más que debamos saber?', 'form.notes.ph': 'Rechina cuando freno',
+    'form.name': 'Su nombre', 'form.phone': 'Número de teléfono', 'form.phone.ph': 'Le mandamos el precio por texto',
+    'form.send': 'Enviar mi solicitud',
+    'sent.title': 'Solicitud recibida', 'sent.thanks': 'Gracias,',
+    'sent.body': 'Le mandaremos el precio lo más pronto posible durante el horario del taller al',
+    'sent.again': 'Enviar otra solicitud', 'sent.preview': 'Esta es una vista previa, así que todavía no se envió nada.',
+    'pick.title': 'Escoja cualquier llanta. Nosotros la buscamos.',
+    'pick.sub': 'Escoja cómo quiere comprar. Revisamos qué hay disponible para su carro y le mandamos el precio por texto.',
+    'pick.low.t': 'El precio más bajo',
+    'pick.low.d': 'Necesita llantas nuevas y seguras y quiere gastar lo menos posible. Le damos el precio más bajo que podamos en las llantas que usted quiere.',
+    'pick.mid.t': 'La mejor por su precio',
+    'pick.mid.d': 'Un nivel más arriba: duran más y hacen menos ruido, sin pagar de más. Le recomendamos una buena llanta para su manera de manejar.',
+    'pick.brand.t': 'La llanta que usted quiere',
+    'pick.brand.d': '¿Ya sabe la marca o la llanta exacta? Díganos cuál y la buscamos.',
+    'pick.cta': 'Pedir mi cotización',
+    'pick.promise': '<strong>Nuestra promesa:</strong> le avisamos si podemos conseguir la llanta que escogió. Si no, le ofrecemos llantas parecidas para que usted escoja. El tiempo de entrega depende de la llanta, así que llámenos al (443) 269-9338 y le respondemos lo más pronto posible.',
+    'svc.title': 'Más que llantas', 'svc.sub': 'Un solo taller para todo su carro, desde un cambio de aceite hasta un cambio de motor. Si es de su carro, lo podemos trabajar.',
+    'svc.7.t': 'Suspensión y dirección', 'svc.7.d': 'Amortiguadores, struts, rótulas y terminales para un manejo firme y seguro.',
+    'svc.8.t': 'Batería y sistema eléctrico', 'svc.8.d': 'Baterías, alternadores, marchas y problemas de cableado.',
+    'svc.9.t': 'Cualquier otra cosa', 'svc.9.d': '¿No ve su problema aquí? Díganos qué pasa y le cotizamos.',
+    'svc.1.t': 'Instalación de llantas', 'svc.1.d': 'Montaje y balanceo de las llantas que nos compra.',
+    'svc.2.t': 'Frenos', 'svc.2.d': 'Pastillas, discos y líquido de frenos, con el precio antes de empezar el trabajo.',
+    'svc.3.t': 'Cambios de aceite', 'svc.3.d': 'Aceite convencional o sintético para su carro.',
+    'svc.5.t': 'Luz de check engine', 'svc.5.d': 'Leemos el código y le explicamos qué significa en palabras sencillas.',
+    'svc.6.t': 'Motores y cambios de motor', 'svc.6.d': 'También trabajos grandes: reparación de motor, cambios de motor y transmisiones.',
+    'rev.title': 'Lo que dicen los clientes', 'rev.sub': 'Reseñas reales de personas que nos trajeron su carro.',
+    'rev.1': 'Excelentes precios, gente amable, me atendieron bien. Fue rápido y la gente fue amable.', 'rev.1n': 'Traducido del inglés',
+    'rev.2': 'Buen trabajo, gente muy amable, hicieron un gran trabajo. Mi carro sigue muy bien después de un par de meses.', 'rev.2n': '',
+    'rev.3': 'Este es mi taller de confianza para cualquier problema.', 'rev.3n': 'Traducido del inglés',
+    'work.title': 'Carros que hemos trabajado', 'work.sub': 'Algunos de los trabajos que han pasado por el taller.',
+    'how.title': 'Cómo funciona',
+    'how.1.t': 'Díganos qué carro tiene', 'how.1.d': 'Ponga el año, la marca y el modelo, y lo que necesita.',
+    'how.2.t': 'Reciba su precio por texto', 'how.2.d': 'Una persona de verdad revisa el precio y se lo manda por texto, en español o en inglés.',
+    'how.3.t': 'Venga al taller', 'how.3.d': 'Recoja sus llantas o se las instalamos en el taller en Lilburn.',
+    'size.title': 'Dónde encontrar la medida de su llanta',
+    'size.lede': 'Mire el costado de cualquier llanta de su carro. Verá un código como 205/55R16. Escríbalo en el formulario y podemos darle el precio más rápido.',
+    'size.1': 'Ancho de la llanta en milímetros', 'size.2': 'Altura del costado, como porcentaje del ancho', 'size.3': 'Para un rin de 16 pulgadas',
+    'visit.title': 'Visite el taller', 'visit.addr': 'Dirección', 'visit.map': 'Abrir en Google Maps',
+    'visit.hours': 'Horario', 'visit.monsat': 'Lunes a sábado', 'visit.sun': 'Domingo', 'visit.closed': 'Cerrado',
+    'visit.call': 'Llame o mande un texto', 'visit.spanish': 'Hablamos español. Con gusto lo atendemos en su idioma.',
+    'foot': 'El precio de las llantas depende de la medida y la disponibilidad. La instalación se cotiza aparte.'
+  };
+  var MSG = {
+    en: { car: 'Car', needs: 'Needs', size: 'Tire size', count: 'How many', type: 'Type', kind: 'Priority', tire: 'Wants', notes: 'Notes',
+          eCar: 'Add your car\'s make and model so we can price the right parts.', eNeed: 'Pick at least one thing you need.',
+          eName: 'Add your name.', ePhone: 'Add a 10 digit phone number so we can text your price.' },
+    es: { car: 'Carro', needs: 'Necesita', size: 'Medida', count: 'Cuántas', type: 'Tipo', kind: 'Prioridad', tire: 'Quiere', notes: 'Notas',
+          eCar: 'Ponga la marca y el modelo de su carro para darle el precio correcto.', eNeed: 'Escoja al menos una cosa que necesita.',
+          eName: 'Ponga su nombre.', ePhone: 'Ponga un número de teléfono de 10 dígitos para mandarle el precio.' }
+  };
+
+  var lang = 'en';
+  var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
+  var phNodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n-ph]'));
+  var EN = {};
+  nodes.forEach(function (n) { EN[n.getAttribute('data-i18n')] = n.innerHTML; });
+  phNodes.forEach(function (n) { EN[n.getAttribute('data-i18n-ph')] = n.getAttribute('placeholder'); });
+
+  function setLang(next, remember) {
+    lang = next === 'es' ? 'es' : 'en';
+    var dict = lang === 'es' ? ES : EN;
+    nodes.forEach(function (n) { var k = n.getAttribute('data-i18n'); if (dict[k] != null) n.innerHTML = dict[k]; });
+    phNodes.forEach(function (n) { var k = n.getAttribute('data-i18n-ph'); if (dict[k] != null) n.setAttribute('placeholder', dict[k]); });
+    document.documentElement.lang = lang;
+    document.getElementById('lang-en').setAttribute('aria-pressed', String(lang === 'en'));
+    document.getElementById('lang-es').setAttribute('aria-pressed', String(lang === 'es'));
+    document.getElementById('q-err').hidden = true;
+    if (remember) { try { localStorage.setItem('riveras-lang', lang); } catch (e) {} }
+  }
+  document.getElementById('lang-en').addEventListener('click', function () { setLang('en', true); });
+  document.getElementById('lang-es').addEventListener('click', function () { setLang('es', true); });
+  var saved = null;
+  try { saved = localStorage.getItem('riveras-lang'); } catch (e) {}
+  if (saved) setLang(saved, false);
+  else if ((navigator.language || '').toLowerCase().indexOf('es') === 0) setLang('es', false);
+
+  var form = document.getElementById('quote-form');
+  var sent = document.getElementById('quote-sent');
+  var err = document.getElementById('q-err');
+  var tireFields = document.getElementById('tire-fields');
+  function val(id) { return document.getElementById(id).value.trim(); }
+  function checked(id) { return document.getElementById(id).checked; }
+  function syncTireFields() { tireFields.hidden = !(checked('n-tires') || checked('n-install')); }
+  document.getElementById('n-tires').addEventListener('change', syncTireFields);
+  document.getElementById('n-install').addEventListener('change', syncTireFields);
+  syncTireFields();
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-pref]'), function (a) {
+    a.addEventListener('click', function () {
+      document.getElementById('n-tires').checked = true;
+      document.getElementById('q-pref').value = a.getAttribute('data-pref');
+      syncTireFields();
+    });
+  });
+
+
+  /* shop-only request list (preview keeps it in this browser) */
+  var LOOKUPS = [];
+  var reqs = [];
+  try { reqs = JSON.parse(localStorage.getItem('riveras-requests') || '[]') || []; } catch (e) { reqs = []; }
+  function saveReqs() { try { localStorage.setItem('riveras-requests', JSON.stringify(reqs)); } catch (e) {} }
+  function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+  function renderReqs() {
+    var list = document.getElementById('o-list');
+    list.textContent = '';
+    document.getElementById('o-empty').hidden = reqs.length > 0;
+    reqs.forEach(function (r) {
+      var card = el('div', 'req');
+      var who = el('div', 'who');
+      who.appendChild(el('strong', '', r.name));
+      who.appendChild(el('span', 'tel', r.phone));
+      card.appendChild(who);
+      card.appendChild(el('div', 'when', r.when));
+      var lines = el('div', 'lines');
+      r.lines.forEach(function (text) {
+        var i = text.indexOf(': '); var d = el('div');
+        if (i > 0) { d.appendChild(el('b', '', text.slice(0, i + 2))); d.appendChild(document.createTextNode(text.slice(i + 2))); }
+        else d.textContent = text;
+        lines.appendChild(d);
+      });
+      card.appendChild(lines);
+      var acts = el('div', 'acts');
+      var st = el('select'); st.setAttribute('aria-label', 'Status');
+      ['New', 'Quoted', 'Sold', 'No sale'].forEach(function (o) { var op = el('option', '', o); op.value = o; st.appendChild(op); });
+      st.value = r.status;
+      st.addEventListener('change', function () { r.status = st.value; saveReqs(); });
+      acts.appendChild(st);
+      if (r.size) {
+        var cp = el('button', '', 'Copy tire size ' + r.size); cp.type = 'button';
+        cp.addEventListener('click', function () {
+          var done = function () { cp.textContent = 'Copied ' + r.size; };
+          try { navigator.clipboard.writeText(r.size).then(done, function () {}); } catch (e) {}
+        });
+        acts.appendChild(cp);
+      }
+      LOOKUPS.forEach(function (l) { var a = el('a', '', l[0]); a.href = l[1]; a.target = '_blank'; a.rel = 'noopener'; acts.appendChild(a); });
+      var del = el('button', 'del', 'Delete'); del.type = 'button';
+      del.addEventListener('click', function () {
+        if (del.textContent === 'Delete') { del.textContent = 'Tap again to delete'; return; }
+        reqs = reqs.filter(function (x) { return x.id !== r.id; }); saveReqs(); renderReqs();
+      });
+      acts.appendChild(del);
+      card.appendChild(acts);
+      list.appendChild(card);
+    });
+  }
+  function route() {
+    var owner = location.hash === '#requests';
+    document.getElementById('owner').hidden = !owner;
+    document.getElementById('site').hidden = owner;
+    if (owner || location.hash === '#home') window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route);
+  renderReqs(); route();
+
+  function line(label, text) {
+    var d = document.createElement('div');
+    var b = document.createElement('b'); b.textContent = label + ': ';
+    d.appendChild(b); d.appendChild(document.createTextNode(text));
+    return d;
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var m = MSG[lang];
+    var needs = Array.prototype.slice.call(form.querySelectorAll('.checks label')).filter(function (l) { return l.querySelector('input').checked; }).map(function (l) { return l.textContent.trim(); });
+    var car = [val('q-year'), val('q-make'), val('q-model')].filter(Boolean).join(' ');
+    var problem = '';
+    if (!val('q-make') || !val('q-model')) problem = m.eCar;
+    else if (!needs.length) problem = m.eNeed;
+    else if (!val('q-name')) problem = m.eName;
+    else if (val('q-phone').replace(/\D/g, '').length < 10) problem = m.ePhone;
+    if (problem) { err.textContent = problem; err.hidden = false; return; }
+    err.hidden = true;
+    document.getElementById('s-name').textContent = val('q-name');
+    document.getElementById('s-phone').textContent = val('q-phone');
+    var t = document.getElementById('s-ticket');
+    t.textContent = '';
+    t.appendChild(line(m.car, car));
+    t.appendChild(line(m.needs, needs.join(', ')));
+    if (!tireFields.hidden) {
+      var pref = document.getElementById('q-pref');
+      if (val('q-size')) t.appendChild(line(m.size, val('q-size')));
+      t.appendChild(line(m.count, val('q-count')));
+      var ty = document.getElementById('q-type');
+      t.appendChild(line(m.type, ty.options[ty.selectedIndex].textContent));
+      t.appendChild(line(m.kind, pref.options[pref.selectedIndex].textContent));
+      if (val('q-tire')) t.appendChild(line(m.tire, val('q-tire')));
+    }
+    if (val('q-notes')) t.appendChild(line(m.notes, val('q-notes')));
+    var lines = Array.prototype.map.call(t.children, function (d) { return d.textContent; });
+    reqs.unshift({ id: Date.now(), when: new Date().toLocaleString(), name: val('q-name'), phone: val('q-phone'),
+                   size: tireFields.hidden ? '' : val('q-size'), lines: lines, status: 'New' });
+    saveReqs(); renderReqs();
+    form.hidden = true; sent.hidden = false;
+  });
+  document.getElementById('s-again').addEventListener('click', function () {
+    form.reset(); syncTireFields(); sent.hidden = true; form.hidden = false;
+  });
+})();
+</script>
+</body>
+</html>
