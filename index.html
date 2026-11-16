@@ -164,6 +164,17 @@ button.go:active { transform: translateY(1px); }
 .pick:hover .pd, .pick:focus-visible .pd { color: var(--tag-muted); }
 .pick:hover .start svg, .pick:focus-visible .start svg { transform: translateX(6px); background: #d3261a; color: #fff; }
 .pick:focus-visible { outline-offset: -3px; }
+.stock { border-top: 3px solid var(--fg); border-bottom: 3px solid var(--fg); }
+.srow { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 12px 32px; align-items: start; padding: 20px 4px; }
+.srow + .srow { border-top: 1px solid var(--line); }
+.srow .sz { font-size: clamp(1.35rem, 2.6vw, 1.9rem); padding-top: 8px; }
+.tires { display: flex; flex-wrap: wrap; gap: 10px; }
+.tchip { display: inline-flex; flex-direction: column; gap: 2px; padding: 10px 14px; border: 2px solid var(--fg); background: var(--surface); color: inherit; text-decoration: none; line-height: 1.25; transition: background-color 0.2s; }
+.tchip b { font-weight: 800; }
+.tchip small { color: var(--muted); font-size: 0.84rem; font-weight: 600; }
+.tchip:hover, .tchip:focus-visible { background: var(--tag); color: var(--tag-ink); }
+.tchip:hover small, .tchip:focus-visible small { color: var(--tag-muted); }
+@media (max-width: 720px) { .srow { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 18px 2px; } .srow .sz { padding-top: 0; } .tchip { flex: 1 1 calc(50% - 10px); } }
 .promise { margin-top: 24px; max-width: 52em; color: var(--muted); }
 .promise strong { color: var(--fg); }
 
@@ -459,6 +470,25 @@ footer a { color: var(--board-fg); }
   </div>
 </section>
 
+<section class="sec" id="stock">
+  <div class="wrap">
+    <div class="head">
+      <h2 data-i18n="stk.title">Popular tires we carry</h2>
+      <p data-i18n="stk.sub">Tap a tire and we'll text you a price. Prices depend on the tire, so we quote each one.</p>
+    </div>
+    <div class="stock">
+      <div class="srow"><div class="sz wide">205/55R16</div><div class="tires"><a class="tchip" href="#quote" data-size="205/55R16" data-tire="Leao Lion Sport HP3"><b>Leao</b> <span>Lion Sport HP3</span></a><a class="tchip" href="#quote" data-size="205/55R16" data-tire="Lexani LXTR-203"><b>Lexani</b> <span>LXTR-203</span><small data-i18n="stk.w50">50K mile warranty</small></a><a class="tchip" href="#quote" data-size="205/55R16" data-tire="Nexen N&#x27;Blue 4Season 2"><b>Nexen</b> <span>N&#x27;Blue 4Season 2</span><small data-i18n="stk.w70">70K mile warranty</small></a></div></div>
+      <div class="srow"><div class="sz wide">225/60R16</div><div class="tires"><a class="tchip" href="#quote" data-size="225/60R16" data-tire="Leao Lion Sport HP3"><b>Leao</b> <span>Lion Sport HP3</span></a><a class="tchip" href="#quote" data-size="225/60R16" data-tire="Lexani LXTR-203"><b>Lexani</b> <span>LXTR-203</span><small data-i18n="stk.w50">50K mile warranty</small></a><a class="tchip" href="#quote" data-size="225/60R16" data-tire="Nexen N&#x27;Blue 4Season 2"><b>Nexen</b> <span>N&#x27;Blue 4Season 2</span></a></div></div>
+      <div class="srow"><div class="sz wide">215/55R17</div><div class="tires"><a class="tchip" href="#quote" data-size="215/55R17" data-tire="Nexen N&#x27;Fera AU7"><b>Nexen</b> <span>N&#x27;Fera AU7</span><small data-i18n="stk.w50">50K mile warranty</small></a><a class="tchip" href="#quote" data-size="215/55R17" data-tire="Nexen CP671"><b>Nexen</b> <span>CP671</span></a></div></div>
+      <div class="srow"><div class="sz wide">225/65R17</div><div class="tires"><a class="tchip" href="#quote" data-size="225/65R17" data-tire="JK Tyre Elanzo Touring"><b>JK Tyre</b> <span>Elanzo Touring</span><small data-i18n="stk.w50">50K mile warranty</small></a><a class="tchip" href="#quote" data-size="225/65R17" data-tire="Leao Lion Sport HP3"><b>Leao</b> <span>Lion Sport HP3</span></a><a class="tchip" href="#quote" data-size="225/65R17" data-tire="Mastertrack M-Trac CUV"><b>Mastertrack</b> <span>M-Trac CUV</span><small data-i18n="stk.w55">55K mile warranty</small></a></div></div>
+      <div class="srow"><div class="sz wide">235/65R17</div><div class="tires"><a class="tchip" href="#quote" data-size="235/65R17" data-tire="RBP Guarantor HT"><b>RBP</b> <span>Guarantor HT</span><small data-i18n="stk.w60">60K mile warranty</small></a><a class="tchip" href="#quote" data-size="235/65R17" data-tire="Nexen Roadian GTX"><b>Nexen</b> <span>Roadian GTX</span><small data-i18n="stk.w70">70K mile warranty</small></a></div></div>
+      <div class="srow"><div class="sz wide">265/70R17</div><div class="tires"><a class="tchip" href="#quote" data-size="265/70R17" data-tire="Leao Lion Sport H/T"><b>Leao</b> <span>Lion Sport H/T</span><small data-i18n="stk.w45">45K mile warranty</small></a><a class="tchip" href="#quote" data-size="265/70R17" data-tire="Leao Lion Sport A/T"><b>Leao</b> <span>Lion Sport A/T</span><small data-i18n="stk.at">All-terrain</small></a><a class="tchip" href="#quote" data-size="265/70R17" data-tire="Zeetex AT1000"><b>Zeetex</b> <span>AT1000</span><small data-i18n="stk.at">All-terrain</small></a><a class="tchip" href="#quote" data-size="LT265/70R17" data-tire="Mastertrack M-Trac HT"><b>Mastertrack</b> <span>M-Trac HT</span><small data-i18n="stk.lt">Truck, 10-ply (LT)</small></a><a class="tchip" href="#quote" data-size="LT265/70R17" data-tire="Crosswind M/T"><b>Crosswind</b> <span>M/T</span><small data-i18n="stk.mt">Mud tire, 10-ply (LT)</small></a></div></div>
+      <div class="srow"><div class="sz wide">235/60R18</div><div class="tires"><a class="tchip" href="#quote" data-size="235/60R18" data-tire="Nexen Roadian GTX"><b>Nexen</b> <span>Roadian GTX</span></a></div></div>
+    </div>
+    <p class="promise" data-i18n="stk.note"><strong>Available as of November 15, 2026.</strong> Stock changes every day. Don't see your size or brand? Ask anyway. We'll tell you if we can get it or offer similar tires.</p>
+  </div>
+</section>
+
 <section class="sec board">
   <div class="wrap">
     <div class="head">
@@ -604,6 +634,18 @@ footer a { color: var(--board-fg); }
     'sent.title': 'Último paso: envíenoslo', 'sent.title2': 'Solicitud recibida', 'sent.how': 'Toque un botón. Su app de textos o de correo se abre con su solicitud ya escrita. Solo presione enviar.', 'sent.sms': 'Enviar por texto', 'sent.mail': 'Enviar por correo', 'sent.after': 'Le mandamos el precio por texto lo más pronto posible durante el horario del taller.', 'sent.thanks': 'Gracias,',
     'sent.body': 'Le mandaremos el precio lo más pronto posible durante el horario del taller al',
     'sent.again': 'Enviar otra solicitud',
+    'stk.title': 'Llantas populares que manejamos',
+    'stk.sub': 'Toque una llanta y le mandamos el precio por texto. El precio depende de la llanta, así que cotizamos cada una.',
+    'stk.note': '<strong>Disponibles al 15 de noviembre de 2026.</strong> El inventario cambia cada día. ¿No ve su medida o marca? Pregúntenos de todos modos. Le decimos si la conseguimos o le ofrecemos llantas parecidas.',
+    'stk.w40': 'Garantía de 40K millas',
+    'stk.w45': 'Garantía de 45K millas',
+    'stk.w50': 'Garantía de 50K millas',
+    'stk.w55': 'Garantía de 55K millas',
+    'stk.w60': 'Garantía de 60K millas',
+    'stk.w70': 'Garantía de 70K millas',
+    'stk.at': 'Todo terreno',
+    'stk.lt': 'Camioneta, 10 capas (LT)',
+    'stk.mt': 'Lodo, 10 capas (LT)',
     'pick.title': 'Escoja cualquier llanta. Nosotros la buscamos.',
     'pick.sub': 'Escoja cómo quiere comprar. Revisamos qué hay disponible para su carro y le mandamos el precio por texto.',
     'pick.low.t': 'El precio más bajo',
@@ -701,6 +743,16 @@ footer a { color: var(--board-fg); }
   });
 
 
+
+  Array.prototype.forEach.call(document.querySelectorAll('.tchip'), function (a) {
+    a.addEventListener('click', function () {
+      document.getElementById('n-tires').checked = true;
+      document.getElementById('q-size').value = a.getAttribute('data-size');
+      document.getElementById('q-tire').value = a.getAttribute('data-tire');
+      document.getElementById('q-pref').value = 'brand';
+      syncTireFields();
+    });
+  });
 
   function line(label, text) {
     var d = document.createElement('div');
