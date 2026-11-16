@@ -3,10 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-HeEzzj2PQg3BRu7ZRryV0AehQT14hNI89OZDZhgpz24=' 'sha256-QT4TVEGOEyYuxEXCYLn/dpxwXJAXWl/F0tikAImLGSA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-cKpTycmB1ekCTFQzCzS5SqgL/54ybSg4+e2+6xb8v84=' 'sha256-PMcRwuaxeQ2T/f+j2hl3Su5vzNSg9jlJNWvWnXQP1IQ='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="New tires at low prices, tire installation and auto repair in Lilburn, GA. Get a quote by text. Hablamos español.">
-<meta name="theme-color" content="#f1f0ec">
+<meta name="theme-color" content="#f1f0ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1b1b19" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://riveras-auto-repair.github.io/shop/">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rivera's Auto Repair">
 <meta property="og:title" content="Rivera's Auto Repair | Tires and Auto Repair in Lilburn, GA">
@@ -18,6 +23,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <title>Rivera's Auto Repair | Tires and Auto Repair in Lilburn, GA</title>
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
 <style>
 /* World: the shop counter. Daylight concrete page, lettering in the wide heavy italic that tire brands use,
@@ -62,6 +69,8 @@ body { background: var(--bg); color: var(--fg); font-family: var(--font); font-s
 p { margin: 0; }
 a { color: var(--accent); text-underline-offset: 0.18em; }
 :focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+a[href^="tel:"] { white-space: nowrap; }
+dialog:not([open]) { display: none; }
 
 /* the lettering: wide, heavy, leaning forward */
 h1, h2, h3, .brand, .wide { font-family: var(--font); font-stretch: 125%; font-variation-settings: "wdth" 125; font-style: italic; font-weight: 800; text-transform: uppercase; line-height: 0.98; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
@@ -123,7 +132,7 @@ fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-direction: colu
 .checks { display: flex; flex-wrap: wrap; gap: 8px; }
 .checks label { display: inline-flex; align-items: center; gap: 7px; border: 1.5px solid #141300; border-radius: 2px; padding: 8px 11px; font-weight: 600; cursor: pointer; background: #fffdf2; transition: background-color 0.15s, color 0.15s; }
 .checks label:has(input:checked) { background: #141300; color: #fffdf2; }
-.checks input { accent-color: #d3261a; width: 16px; height: 16px; margin: 0; }
+.checks input { accent-color: #d3261a; width: 16px; height: 16px; margin: 0; flex: none; }
 button.go, a.go { font: inherit; font-stretch: 125%; font-variation-settings: "wdth" 125; font-style: italic; font-weight: 800; font-size: 1.15rem; text-transform: uppercase; background: #141300; color: #fffdf2; border: 0; border-radius: 2px; padding: 15px 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background-color 0.15s; }
 .sendbtns { display: grid; gap: 10px; }
 a.go { text-decoration: none; text-align: center; }
@@ -137,9 +146,10 @@ button.go:hover, a.go:not(.alt):hover { background: #d3261a; }
 button.go:hover svg, a.go:hover svg { transform: translateX(5px); }
 button.go:active { transform: translateY(1px); }
 .err { color: #b3160c; font-size: 0.92rem; font-weight: 700; }
-.sent h3 { font-size: 1.5rem; }
+.sent h2 { font-size: 1.5rem; line-height: 1.1; }
 .receipt { border: 1.5px dashed #141300; border-radius: 2px; padding: 12px 14px; background: #fffdf2; display: grid; gap: 4px; font-size: 0.95rem; color: #121211; }
 .receipt b { font-weight: 700; }
+.receipt div { white-space: pre-line; overflow-wrap: anywhere; }
 .ticket a { color: #7a0f07; }
 .ticket a.go { color: #fffdf2; }
 .ticket a.go.alt { color: #141300; }
@@ -206,6 +216,7 @@ button.go:active { transform: translateY(1px); }
 @media (max-width: 720px) { .srow { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 18px 2px; } .srow .sz { padding-top: 0; } .tchip { flex: 1 1 calc(50% - 10px); grid-template-columns: 24px minmax(0, 1fr); column-gap: 8px; padding: 10px 10px 10px 8px; } .tchip .ti { width: 24px; height: 24px; } }
 @media (max-width: 520px) { .tp-in { padding: 18px; gap: 14px; } .tp-top { grid-template-columns: 72px minmax(0, 1fr) 40px; gap: 12px; } .tp-art svg { width: 72px; } .tp-specs { grid-template-columns: minmax(0, 1fr); gap: 2px; } .tp-specs dd { margin-bottom: 8px; } }
 @media (prefers-reduced-motion: reduce) { .tchip .ti { transition: none; } }
+@media (max-width: 340px) { .tchip { grid-template-columns: minmax(0, 1fr); padding: 10px; } .tchip .ti { display: none; } }
 /* tire photos: gallery cards and the photo viewer */
 .ph-stage { display: block; position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: radial-gradient(ellipse 72% 62% at 50% 44%, #ffffff 0%, #f3f2ee 58%, #e2e0d9 100%); }
 .ph-stage img { display: block; width: 100%; height: 100%; object-fit: contain; }
@@ -305,6 +316,7 @@ a.brand { color: inherit; text-decoration: none; }
 .more-go:hover, .more-go:focus-visible { background: #fffdf2; }
 .more-go:hover svg, .more-go:focus-visible svg { transform: translateX(4px); }
 .photospage .more { margin: 28px 0 0; }
+@media (min-width: 721px) and (max-width: 1060px) { .more { grid-template-columns: auto minmax(0, 1fr); } .more-n { grid-row: span 2; } .more-go { grid-column: 2; justify-self: start; } }
 @media (max-width: 720px) { .more { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 20px 18px; } .more-go { justify-self: start; } }
 @media (prefers-reduced-motion: reduce) { .more-go svg { transition: none; } }
 .promise { margin-top: 24px; max-width: 52em; color: var(--muted); }
@@ -351,13 +363,14 @@ a.brand { color: inherit; text-decoration: none; }
 .visit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 48px; }
 .visit .mail { overflow-wrap: anywhere; font-weight: 600; }
 .bigcall { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; border-bottom: 1px solid var(--board-line); padding-bottom: 32px; }
-.bigcall a { color: var(--tag); text-decoration: none; font-stretch: 125%; font-variation-settings: "wdth" 125; font-style: italic; font-weight: 900; font-size: clamp(2.1rem, 9.4vw, 6rem); line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bigcall a { color: var(--tag); text-decoration: none; font-stretch: 125%; font-variation-settings: "wdth" 125; font-style: italic; font-weight: 900; font-size: clamp(1.75rem, 9.2vw, 6rem); line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .bigcall a:hover { color: #fff; }
 .visit .label { color: var(--board-muted); }
 .visit > div { display: flex; flex-direction: column; gap: 6px; }
 .board a { color: var(--tag); }
 .hours { display: grid; grid-template-columns: auto auto; gap: 2px 18px; justify-content: start; font-variant-numeric: tabular-nums; }
 .hours span { white-space: nowrap; }
+.hours span:nth-child(odd) { white-space: normal; }
 footer { background: var(--board); color: var(--board-muted); font-size: 0.88rem; border-top: 1px solid var(--board-line); }
 footer .wrap { padding-block: 20px 28px; }
 .ownerlink { margin-left: 8px; }
@@ -472,7 +485,7 @@ footer a { color: var(--board-fg); }
     </div>
   </div>
 </header>
-
+<main>
 <div class="wrap">
   <div class="hero">
     <div class="pitch">
@@ -496,8 +509,8 @@ footer a { color: var(--board-fg); }
       <div class="tbody">
         <div class="row car">
           <div class="field"><label for="q-year" data-i18n="form.year">Year</label><input id="q-year" type="number" inputmode="numeric" min="1980" max="2027" placeholder="2010"></div>
-          <div class="field"><label for="q-make" data-i18n="form.make">Make</label><input id="q-make" type="text" placeholder="Honda" autocomplete="off"></div>
-          <div class="field"><label for="q-model" data-i18n="form.model">Model</label><input id="q-model" type="text" placeholder="Civic" autocomplete="off"></div>
+          <div class="field"><label for="q-make" data-i18n="form.make">Make</label><input id="q-make" type="text" placeholder="Honda" autocomplete="off" maxlength="30"></div>
+          <div class="field"><label for="q-model" data-i18n="form.model">Model</label><input id="q-model" type="text" placeholder="Civic" autocomplete="off" maxlength="40"></div>
         </div>
         <fieldset>
           <legend data-i18n="form.need">What do you need?</legend>
@@ -513,7 +526,7 @@ footer a { color: var(--board-fg); }
           <div class="row two keep">
             <div class="field">
               <label for="q-size"><span data-i18n="form.size">Tire size</span> <span class="hint" data-i18n="form.optional">(optional)</span></label>
-              <input id="q-size" type="text" placeholder="205/55R16" autocomplete="off">
+              <input id="q-size" type="text" placeholder="205/55R16" autocomplete="off" maxlength="20">
             </div>
             <div class="field">
               <label for="q-count" data-i18n="form.count">How many tires?</label>
@@ -548,16 +561,16 @@ footer a { color: var(--board-fg); }
           </div>
           <div class="field">
             <label for="q-tire"><span data-i18n="form.tire">Brand or tire you want</span> <span class="hint" data-i18n="form.optional">(optional)</span></label>
-            <input id="q-tire" type="text" autocomplete="off" data-i18n-ph="form.tire.ph" placeholder="Any brand or model">
+            <input id="q-tire" type="text" autocomplete="off" maxlength="80" data-i18n-ph="form.tire.ph" placeholder="Any brand or model">
           </div>
         </div>
         <div class="field">
           <label for="q-notes"><span data-i18n="form.notes">Anything else we should know?</span> <span class="hint" data-i18n="form.optional">(optional)</span></label>
-          <textarea id="q-notes" data-i18n-ph="form.notes.ph" placeholder="Grinding noise when I brake"></textarea>
+          <textarea id="q-notes" maxlength="600" data-i18n-ph="form.notes.ph" placeholder="Grinding noise when I brake"></textarea>
         </div>
         <div class="row two">
-          <div class="field"><label for="q-name" data-i18n="form.name">Your name</label><input id="q-name" type="text" autocomplete="name"></div>
-          <div class="field"><label for="q-phone" data-i18n="form.phone">Phone number</label><input id="q-phone" type="tel" autocomplete="tel" data-i18n-ph="form.phone.ph" placeholder="We'll text your price"></div>
+          <div class="field"><label for="q-name" data-i18n="form.name">Your name</label><input id="q-name" type="text" autocomplete="name" maxlength="60"></div>
+          <div class="field"><label for="q-phone" data-i18n="form.phone">Phone number</label><input id="q-phone" type="tel" autocomplete="tel" maxlength="20" data-i18n-ph="form.phone.ph" placeholder="We'll text your price"></div>
         </div>
         <p class="err" id="q-err" role="alert" hidden></p>
         <button class="go" type="submit"><span data-i18n="form.send">Send my quote request</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 4.5 15.5 10 10 15.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></button>
@@ -567,8 +580,8 @@ footer a { color: var(--board-fg); }
 
     <div class="ticket sent" id="quote-sent" hidden>
       <div class="thead">
-        <h3 class="if-manual" data-i18n="sent.title">Last step: send it to us</h3>
-        <h3 class="if-auto" data-i18n="sent.title2">Request received</h3>
+        <h2 class="if-manual" data-i18n="sent.title">Last step: send it to us</h2>
+        <h2 class="if-auto" data-i18n="sent.title2">Request received</h2>
       </div>
       <div class="tbody">
         <p class="if-manual" data-i18n="sent.how">Tap a button below. Your text or email app opens with your request already written. Just press send.</p>
@@ -598,7 +611,7 @@ footer a { color: var(--board-fg); }
       <a class="pick" href="#quote" data-pref="mid"><span class="pt wide" data-i18n="pick.mid.t">Best value</span><span class="pd" data-i18n="pick.mid.d">A step up for longer life and a quieter ride, without paying top dollar. We'll suggest a good tire for how you drive.</span><span class="start"><span data-i18n="pick.start">Start my quote</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 4.5 15.5 10 10 15.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></span></a>
       <a class="pick" href="#quote" data-pref="brand"><span class="pt wide" data-i18n="pick.brand.t">The tire you want</span><span class="pd" data-i18n="pick.brand.d">Already know the brand or the exact tire? Tell us which one and we'll look for it.</span><span class="start"><span data-i18n="pick.start">Start my quote</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 4.5 15.5 10 10 15.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></span></a>
     </div>
-    <p class="promise" data-i18n="pick.promise"><strong>Our promise:</strong> we'll tell you if we can get the tire you picked. If we can't, we'll offer similar tires so you can choose. How soon a tire arrives depends on the tire, so give us a call at (443) 269-9338 and we'll get back to you as soon as possible.</p>
+    <p class="promise" data-i18n="pick.promise"><strong>Our promise:</strong> we'll tell you if we can get the tire you picked. If we can't, we'll offer similar tires so you can choose. How soon a tire arrives depends on the tire, so give us a call at <a href="tel:+14432699338">(443) 269-9338</a> and we'll get back to you as soon as possible.</p>
   </div>
 </section>
 
@@ -784,6 +797,7 @@ footer a { color: var(--board-fg); }
   </div>
 </section>
 
+</main>
 <footer><div class="wrap"><span>Rivera's Auto Repair.</span> <span data-i18n="foot">Tire prices depend on size and availability. Installation is quoted separately.</span> <a class="ownerlink" href="#terms" data-i18n="foot.terms">Terms and privacy</a></div></footer>
 <nav class="mbar" aria-label="Contact">
   <a href="tel:+14432699338" data-i18n="bar.call">Call</a>
@@ -816,7 +830,7 @@ footer a { color: var(--board-fg); }
     'pref.low': 'El precio más bajo', 'pref.mid': 'La mejor por su precio', 'pref.brand': 'Una marca o llanta específica',
     'form.tire': 'Marca o llanta que quiere', 'form.tire.ph': 'Cualquier marca o modelo',
     'form.notes': '¿Algo más que debamos saber?', 'form.notes.ph': 'Rechina cuando freno',
-    'form.name': 'Su nombre', 'form.phone': 'Número de teléfono', 'form.phone.ph': 'Le mandamos el precio por texto',
+    'form.name': 'Su nombre', 'form.phone': 'Número de teléfono', 'form.phone.ph': 'Le mandamos el precio',
     'form.send': 'Enviar mi solicitud',
     'sent.title': 'Último paso: envíenoslo', 'sent.title2': 'Solicitud recibida', 'sent.how': 'Toque un botón. Su app de textos o de correo se abre con su solicitud ya escrita. Solo presione enviar.', 'sent.sms': 'Enviar por texto', 'sent.mail': 'Enviar por correo', 'sent.after': 'Le mandamos el precio por texto lo más pronto posible durante el horario del taller.', 'sent.thanks': 'Gracias,',
     'sent.body': 'Le mandaremos el precio lo más pronto posible durante el horario del taller al',
@@ -871,7 +885,7 @@ footer a { color: var(--board-fg); }
     'pick.brand.t': 'La llanta que usted quiere',
     'pick.brand.d': '¿Ya sabe la marca o la llanta exacta? Díganos cuál y la buscamos.',
     'pick.cta': 'Pedir mi cotización', 'pick.start': 'Empezar mi cotización',
-    'pick.promise': '<strong>Nuestra promesa:</strong> le avisamos si podemos conseguir la llanta que escogió. Si no, le ofrecemos llantas parecidas para que usted escoja. El tiempo de entrega depende de la llanta, así que llámenos al (443) 269-9338 y le respondemos lo más pronto posible.',
+    'pick.promise': '<strong>Nuestra promesa:</strong> le avisamos si podemos conseguir la llanta que escogió. Si no, le ofrecemos llantas parecidas para que usted escoja. El tiempo de entrega depende de la llanta, así que llámenos al <a href="tel:+14432699338">(443) 269-9338</a> y le respondemos lo más pronto posible.',
     'svc.title': 'Más que llantas', 'svc.sub': 'Un solo taller para todo su carro, desde un cambio de aceite hasta un cambio de motor. Si es de su carro, lo podemos trabajar.',
     'svc.7.t': 'Suspensión y dirección', 'svc.7.d': 'Amortiguadores, struts, rótulas y terminales para un manejo firme y seguro.',
     'svc.8.t': 'Batería y sistema eléctrico', 'svc.8.d': 'Baterías, alternadores, marchas y problemas de cableado.',
@@ -1117,7 +1131,7 @@ footer a { color: var(--board-fg); }
     if (!tireFields.hidden) {
       var pref = document.getElementById('q-pref');
       if (val('q-size')) t.appendChild(line(m.size, val('q-size')));
-      t.appendChild(line(m.count, val('q-count')));
+      if (/^[1-9][0-9]?$/.test(val('q-count'))) t.appendChild(line(m.count, val('q-count')));
       var ty = document.getElementById('q-type');
       t.appendChild(line(m.type, ty.options[ty.selectedIndex].textContent));
       t.appendChild(line(m.kind, pref.options[pref.selectedIndex].textContent));
@@ -1154,11 +1168,12 @@ footer a { color: var(--board-fg); }
   if (!window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
   gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', function () {
-    gsap.timeline({ defaults: { ease: 'expo.out' } })
+    var deep = location.hash.length > 1;
+    if (!deep) gsap.timeline({ defaults: { ease: 'expo.out' } })
       .from('.pitchtop > *, .points', { y: 22, autoAlpha: 0, duration: 0.8, stagger: 0.07 }, 0)
       .from('#quote-form', { y: 28, rotation: 1.2, autoAlpha: 0, duration: 0.9 }, 0.1)
       .fromTo('.tread', { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.6, clearProps: 'clipPath' }, 0.15);
-    gsap.fromTo('.herotire svg', { xPercent: -260, rotation: -420 }, { xPercent: 0, rotation: 0, duration: 1.6, ease: 'expo.out' });
+    if (!deep) gsap.fromTo('.herotire svg', { xPercent: -260, rotation: -420 }, { xPercent: 0, rotation: 0, duration: 1.6, ease: 'expo.out' });
     gsap.to('.herotire svg', { rotation: 200, ease: 'none', immediateRender: false,
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6 } });
     gsap.fromTo('.sizetire', { rotation: -220 }, { rotation: 0, ease: 'none',

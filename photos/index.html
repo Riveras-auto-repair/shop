@@ -3,10 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ERoxrfC4PnHo9sKpXK88HnY8BkQgfZ3QcDi6w63mQio='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-F9H55YxeyrD7gSHs39W/r/NxSBT5b4rxMYzH8M4AmhA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="Photos of the tires we carry at Rivera's Auto Repair in Lilburn, GA. Tap a tire to see it bigger and get a price by text. Hablamos español.">
-<meta name="theme-color" content="#f1f0ec">
+<meta name="theme-color" content="#f1f0ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1b1b19" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://riveras-auto-repair.github.io/shop/photos/">
+<link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rivera's Auto Repair">
 <meta property="og:title" content="Tire photos | Rivera's Auto Repair, Lilburn GA">
@@ -18,6 +23,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <title>Tire photos | Rivera's Auto Repair, Lilburn GA</title>
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
 <style>
 /* World: the shop counter. Daylight concrete page, lettering in the wide heavy italic that tire brands use,
@@ -62,6 +69,8 @@ body { background: var(--bg); color: var(--fg); font-family: var(--font); font-s
 p { margin: 0; }
 a { color: var(--accent); text-underline-offset: 0.18em; }
 :focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+a[href^="tel:"] { white-space: nowrap; }
+dialog:not([open]) { display: none; }
 
 /* the lettering: wide, heavy, leaning forward */
 h1, h2, h3, .brand, .wide { font-family: var(--font); font-stretch: 125%; font-variation-settings: "wdth" 125; font-style: italic; font-weight: 800; text-transform: uppercase; line-height: 0.98; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
@@ -123,7 +132,7 @@ fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-direction: colu
 .checks { display: flex; flex-wrap: wrap; gap: 8px; }
 .checks label { display: inline-flex; align-items: center; gap: 7px; border: 1.5px solid #141300; border-radius: 2px; padding: 8px 11px; font-weight: 600; cursor: pointer; background: #fffdf2; transition: background-color 0.15s, color 0.15s; }
 .checks label:has(input:checked) { background: #141300; color: #fffdf2; }
-.checks input { accent-color: #d3261a; width: 16px; height: 16px; margin: 0; }
+.checks input { accent-color: #d3261a; width: 16px; height: 16px; margin: 0; flex: none; }
 button.go, a.go { font: inherit; font-stretch: 125%; font-variation-settings: "wdth" 125; font-style: italic; font-weight: 800; font-size: 1.15rem; text-transform: uppercase; background: #141300; color: #fffdf2; border: 0; border-radius: 2px; padding: 15px 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background-color 0.15s; }
 .sendbtns { display: grid; gap: 10px; }
 a.go { text-decoration: none; text-align: center; }
@@ -137,9 +146,10 @@ button.go:hover, a.go:not(.alt):hover { background: #d3261a; }
 button.go:hover svg, a.go:hover svg { transform: translateX(5px); }
 button.go:active { transform: translateY(1px); }
 .err { color: #b3160c; font-size: 0.92rem; font-weight: 700; }
-.sent h3 { font-size: 1.5rem; }
+.sent h2 { font-size: 1.5rem; line-height: 1.1; }
 .receipt { border: 1.5px dashed #141300; border-radius: 2px; padding: 12px 14px; background: #fffdf2; display: grid; gap: 4px; font-size: 0.95rem; color: #121211; }
 .receipt b { font-weight: 700; }
+.receipt div { white-space: pre-line; overflow-wrap: anywhere; }
 .ticket a { color: #7a0f07; }
 .ticket a.go { color: #fffdf2; }
 .ticket a.go.alt { color: #141300; }
@@ -206,6 +216,7 @@ button.go:active { transform: translateY(1px); }
 @media (max-width: 720px) { .srow { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 18px 2px; } .srow .sz { padding-top: 0; } .tchip { flex: 1 1 calc(50% - 10px); grid-template-columns: 24px minmax(0, 1fr); column-gap: 8px; padding: 10px 10px 10px 8px; } .tchip .ti { width: 24px; height: 24px; } }
 @media (max-width: 520px) { .tp-in { padding: 18px; gap: 14px; } .tp-top { grid-template-columns: 72px minmax(0, 1fr) 40px; gap: 12px; } .tp-art svg { width: 72px; } .tp-specs { grid-template-columns: minmax(0, 1fr); gap: 2px; } .tp-specs dd { margin-bottom: 8px; } }
 @media (prefers-reduced-motion: reduce) { .tchip .ti { transition: none; } }
+@media (max-width: 340px) { .tchip { grid-template-columns: minmax(0, 1fr); padding: 10px; } .tchip .ti { display: none; } }
 /* tire photos: gallery cards and the photo viewer */
 .ph-stage { display: block; position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: radial-gradient(ellipse 72% 62% at 50% 44%, #ffffff 0%, #f3f2ee 58%, #e2e0d9 100%); }
 .ph-stage img { display: block; width: 100%; height: 100%; object-fit: contain; }
@@ -305,6 +316,7 @@ a.brand { color: inherit; text-decoration: none; }
 .more-go:hover, .more-go:focus-visible { background: #fffdf2; }
 .more-go:hover svg, .more-go:focus-visible svg { transform: translateX(4px); }
 .photospage .more { margin: 28px 0 0; }
+@media (min-width: 721px) and (max-width: 1060px) { .more { grid-template-columns: auto minmax(0, 1fr); } .more-n { grid-row: span 2; } .more-go { grid-column: 2; justify-self: start; } }
 @media (max-width: 720px) { .more { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 20px 18px; } .more-go { justify-self: start; } }
 @media (prefers-reduced-motion: reduce) { .more-go svg { transition: none; } }
 .promise { margin-top: 24px; max-width: 52em; color: var(--muted); }
@@ -351,13 +363,14 @@ a.brand { color: inherit; text-decoration: none; }
 .visit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 48px; }
 .visit .mail { overflow-wrap: anywhere; font-weight: 600; }
 .bigcall { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; border-bottom: 1px solid var(--board-line); padding-bottom: 32px; }
-.bigcall a { color: var(--tag); text-decoration: none; font-stretch: 125%; font-variation-settings: "wdth" 125; font-style: italic; font-weight: 900; font-size: clamp(2.1rem, 9.4vw, 6rem); line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bigcall a { color: var(--tag); text-decoration: none; font-stretch: 125%; font-variation-settings: "wdth" 125; font-style: italic; font-weight: 900; font-size: clamp(1.75rem, 9.2vw, 6rem); line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .bigcall a:hover { color: #fff; }
 .visit .label { color: var(--board-muted); }
 .visit > div { display: flex; flex-direction: column; gap: 6px; }
 .board a { color: var(--tag); }
 .hours { display: grid; grid-template-columns: auto auto; gap: 2px 18px; justify-content: start; font-variant-numeric: tabular-nums; }
 .hours span { white-space: nowrap; }
+.hours span:nth-child(odd) { white-space: normal; }
 footer { background: var(--board); color: var(--board-muted); font-size: 0.88rem; border-top: 1px solid var(--board-line); }
 footer .wrap { padding-block: 20px 28px; }
 .ownerlink { margin-left: 8px; }
@@ -541,7 +554,7 @@ footer a { color: var(--board-fg); }
     'pref.low': 'El precio más bajo', 'pref.mid': 'La mejor por su precio', 'pref.brand': 'Una marca o llanta específica',
     'form.tire': 'Marca o llanta que quiere', 'form.tire.ph': 'Cualquier marca o modelo',
     'form.notes': '¿Algo más que debamos saber?', 'form.notes.ph': 'Rechina cuando freno',
-    'form.name': 'Su nombre', 'form.phone': 'Número de teléfono', 'form.phone.ph': 'Le mandamos el precio por texto',
+    'form.name': 'Su nombre', 'form.phone': 'Número de teléfono', 'form.phone.ph': 'Le mandamos el precio',
     'form.send': 'Enviar mi solicitud',
     'sent.title': 'Último paso: envíenoslo', 'sent.title2': 'Solicitud recibida', 'sent.how': 'Toque un botón. Su app de textos o de correo se abre con su solicitud ya escrita. Solo presione enviar.', 'sent.sms': 'Enviar por texto', 'sent.mail': 'Enviar por correo', 'sent.after': 'Le mandamos el precio por texto lo más pronto posible durante el horario del taller.', 'sent.thanks': 'Gracias,',
     'sent.body': 'Le mandaremos el precio lo más pronto posible durante el horario del taller al',
@@ -596,7 +609,7 @@ footer a { color: var(--board-fg); }
     'pick.brand.t': 'La llanta que usted quiere',
     'pick.brand.d': '¿Ya sabe la marca o la llanta exacta? Díganos cuál y la buscamos.',
     'pick.cta': 'Pedir mi cotización', 'pick.start': 'Empezar mi cotización',
-    'pick.promise': '<strong>Nuestra promesa:</strong> le avisamos si podemos conseguir la llanta que escogió. Si no, le ofrecemos llantas parecidas para que usted escoja. El tiempo de entrega depende de la llanta, así que llámenos al (443) 269-9338 y le respondemos lo más pronto posible.',
+    'pick.promise': '<strong>Nuestra promesa:</strong> le avisamos si podemos conseguir la llanta que escogió. Si no, le ofrecemos llantas parecidas para que usted escoja. El tiempo de entrega depende de la llanta, así que llámenos al <a href="tel:+14432699338">(443) 269-9338</a> y le respondemos lo más pronto posible.',
     'svc.title': 'Más que llantas', 'svc.sub': 'Un solo taller para todo su carro, desde un cambio de aceite hasta un cambio de motor. Si es de su carro, lo podemos trabajar.',
     'svc.7.t': 'Suspensión y dirección', 'svc.7.d': 'Amortiguadores, struts, rótulas y terminales para un manejo firme y seguro.',
     'svc.8.t': 'Batería y sistema eléctrico', 'svc.8.d': 'Baterías, alternadores, marchas y problemas de cableado.',

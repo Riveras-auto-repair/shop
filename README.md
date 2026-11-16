@@ -7,6 +7,7 @@ It is in English and Spanish, and it is hosted for free with GitHub Pages at htt
 - `photos/index.html` is the tire photos page.
 - `tires/` holds the tire photos (from the tire makers, shown without the wheel).
 - `js/` holds the GSAP animation library, served from this site (https://gsap.com/standard-license).
+- `favicon-48.png`, `icon-192.png` and `apple-touch-icon.png` are the site icon (browser tabs, search results, phone home screens).
 
 The quote form opens the customer's text or email app with the request already written, addressed to the shop. The website itself stores nothing and takes no payments.
 
