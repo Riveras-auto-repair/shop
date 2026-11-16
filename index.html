@@ -877,9 +877,6 @@ footer a { color: var(--board-fg); }
   /* Where requests go. INBOX_URL is the shop's request list (empty = customers send by text or email). */
   var INBOX_URL = '';
   var SHOP_EMAIL = 'luivera409@gmail.com';
-  /* Which ad or post sent this visitor, from a link like ?from=instagram */
-  var FROM = '';
-  try { FROM = (new URLSearchParams(location.search).get('from') || '').slice(0, 40); } catch (e) {}
   var lang = 'en';
   var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
   var phNodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n-ph]'));
@@ -1088,10 +1085,7 @@ footer a { color: var(--board-fg); }
     if (auto) {
       try {
         fetch(INBOX_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({ name: val('q-name'), phone: val('q-phone'), car: car, needs: needs.join(', '), details: lines.join('\n'), lang: lang,
-            size: tireFields.hidden ? '' : val('q-size'), count: tireFields.hidden ? '' : val('q-count'),
-            type: tireFields.hidden ? '' : document.getElementById('q-type').value, pref: tireFields.hidden ? '' : document.getElementById('q-pref').value,
-            tire: tireFields.hidden ? '' : val('q-tire'), notes: val('q-notes'), from: FROM }) });
+          body: JSON.stringify({ name: val('q-name'), phone: val('q-phone'), car: car, needs: needs.join(', '), details: lines.join('\n'), lang: lang }) });
       } catch (x) {}
     }
     sent.classList.toggle('auto', auto);
