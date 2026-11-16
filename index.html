@@ -3,12 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-22M5qlqMrVq55iPjBTXSLrI1fu7rlj9Zkx+aechen+k=' 'sha256-QT4TVEGOEyYuxEXCYLn/dpxwXJAXWl/F0tikAImLGSA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="New tires at low prices, tire installation and auto repair in Lilburn, GA. Get a quote by text. Hablamos español.">
 <meta name="theme-color" content="#f1f0ec">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rivera's Auto Repair">
 <meta property="og:title" content="Rivera's Auto Repair | Tires and Auto Repair in Lilburn, GA">
-<meta property="og:description" content="New tires installed and auto repair in Lilburn, GA. Get a quote by text. Hablamos español.">
+<meta property="og:description" content="New tires at low prices, tire installation and auto repair in Lilburn, GA. Get a quote by text. Hablamos español.">
 <meta property="og:url" content="https://riveras-auto-repair.github.io/shop/">
 <meta property="og:image" content="https://riveras-auto-repair.github.io/shop/share-preview.png">
 <meta property="og:image:width" content="1200">
@@ -199,8 +201,8 @@ button.go:active { transform: translateY(1px); }
 .tp-h { font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.8rem; color: var(--muted); }
 .tp-cars { font-weight: 700; font-size: 1.05rem; }
 .tp-small { color: var(--muted); font-size: 0.88rem; }
-.tpop button.go { width: 100%; background: var(--fg); color: var(--surface); }
-.tpop button.go:hover { background: #d3261a; color: #fff; }
+.tpop button.go, .tpop a.go { width: 100%; background: var(--fg); color: var(--surface); }
+.tpop button.go:hover, .tpop a.go:hover { background: #d3261a; color: #fff; }
 @media (max-width: 720px) { .srow { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 18px 2px; } .srow .sz { padding-top: 0; } .tchip { flex: 1 1 calc(50% - 10px); grid-template-columns: 24px minmax(0, 1fr); column-gap: 8px; padding: 10px 10px 10px 8px; } .tchip .ti { width: 24px; height: 24px; } }
 @media (max-width: 520px) { .tp-in { padding: 18px; gap: 14px; } .tp-top { grid-template-columns: 72px minmax(0, 1fr) 40px; gap: 12px; } .tp-art svg { width: 72px; } .tp-specs { grid-template-columns: minmax(0, 1fr); gap: 2px; } .tp-specs dd { margin-bottom: 8px; } }
 @media (prefers-reduced-motion: reduce) { .tchip .ti { transition: none; } }
@@ -208,7 +210,7 @@ button.go:active { transform: translateY(1px); }
 .ph-stage { display: block; position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: radial-gradient(ellipse 72% 62% at 50% 44%, #ffffff 0%, #f3f2ee 58%, #e2e0d9 100%); }
 .ph-stage img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .pgrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
-.pcard { display: flex; flex-direction: column; min-width: 0; padding: 0; border: 2px solid var(--fg); background: var(--surface); color: inherit; font: inherit; text-align: left; cursor: zoom-in; transition: background-color 0.2s; }
+.pcard { display: flex; flex-direction: column; min-width: 0; padding: 0; border: 2px solid var(--fg); background: var(--surface); color: inherit; font: inherit; text-align: left; text-decoration: none; cursor: zoom-in; transition: background-color 0.2s; }
 .pcard .ph-stage { border-bottom: 2px solid var(--fg); }
 .pcard img { transition: transform 0.5s var(--out); }
 .pc-tx { display: flex; flex-direction: column; gap: 2px; padding: 12px 12px 14px; flex: 1; }
@@ -259,6 +261,40 @@ button.go:active { transform: translateY(1px); }
 }
 @media (max-width: 520px) { .tp-top.has-photo { grid-template-columns: 100px minmax(0, 1fr) 40px; } }
 @media (prefers-reduced-motion: reduce) { .pcard img { transition: none; } .pcard:hover img, .pcard:focus-visible img { transform: none; } }
+.phlink { display: flex; align-items: center; gap: 16px; margin: 0 0 28px; padding: 14px 18px 14px 16px; border: 3px solid var(--fg); background: var(--surface); color: inherit; text-decoration: none; transition: background-color 0.2s; }
+.phl-th { display: flex; flex: none; }
+.phl-th img { width: 58px; height: 58px; border-radius: 50%; border: 2px solid var(--fg); background: radial-gradient(circle at 50% 42%, #ffffff 0%, #ecebe6 70%, #dfddd6 100%); }
+.phl-th img + img { margin-left: -16px; }
+.phl-tx { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1; }
+.phl-tx b { font-size: clamp(1.1rem, 2.4vw, 1.45rem); }
+.phl-tx small { color: var(--muted); font-size: 0.9rem; }
+.phlink > svg { width: 44px; height: 44px; padding: 11px; border-radius: 50%; background: var(--fg); color: var(--bg); flex: none; transition: transform 0.25s var(--out), background-color 0.2s; }
+.phlink:hover, .phlink:focus-visible { background: var(--tag); color: var(--tag-ink); }
+.phlink:hover small, .phlink:focus-visible small { color: var(--tag-muted); }
+.phlink:hover > svg, .phlink:focus-visible > svg { transform: translateX(6px); background: #d3261a; color: #fff; }
+a.brand { color: inherit; text-decoration: none; }
+.backlink { margin: 0 0 22px; }
+.backlink a { display: inline-flex; align-items: center; gap: 8px; color: inherit; font-weight: 800; text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 2px; }
+.backlink svg { width: 18px; height: 18px; }
+.photospage h1 { font-size: clamp(2.2rem, 5.6vw, 4.2rem); }
+.photospage .sec { padding-block: clamp(28px, 5vw, 56px) clamp(52px, 8vw, 96px); }
+.pv-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.pv-list a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; align-items: center; padding: 10px 12px; border: 2px solid var(--fg); color: inherit; text-decoration: none; }
+.pv-list b { font-weight: 800; }
+.pv-list span { grid-column: 1; color: var(--muted); font-size: 0.88rem; }
+.pv-list svg { grid-column: 2; grid-row: 1 / span 2; width: 18px; height: 18px; }
+.pv-list a:hover, .pv-list a:focus-visible { background: var(--fg); color: var(--surface); }
+.pv-list a:hover span, .pv-list a:focus-visible span { color: inherit; }
+@media (max-width: 720px) {
+  .photospage .pgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; overflow: visible; margin-inline: 0; padding: 0; }
+  .photospage .pc-tx { padding: 10px 10px 12px; }
+  .photospage .pc-m { font-size: 0.95rem; }
+  .phlink { gap: 12px; padding: 12px 12px 12px 12px; }
+  .phl-th img { width: 46px; height: 46px; }
+  .phl-th img + img { margin-left: -18px; }
+  .phlink > svg { width: 38px; height: 38px; padding: 9px; }
+}
+@media (prefers-reduced-motion: reduce) { .phlink > svg { transition: none; } }
 .promise { margin-top: 24px; max-width: 52em; color: var(--muted); }
 .promise strong { color: var(--fg); }
 
@@ -560,6 +596,7 @@ footer a { color: var(--board-fg); }
       <h2 data-i18n="stk.title">Popular tires we carry</h2>
       <p data-i18n="stk.sub">Tap a tire to see what it looks like, what it's good for, and the cars that size fits. Prices depend on the tire, so we text you a quote.</p>
     </div>
+    <a class="phlink" href="photos/"><span class="phl-th" aria-hidden="true"><img src="tires/leao-lion-sport-hp3-160.webp" alt="" width="160" height="160" loading="lazy" decoding="async"><img src="tires/nexen-roadian-gtx-160.webp" alt="" width="160" height="160" loading="lazy" decoding="async"><img src="tires/amp-terrain-pro-at-160.webp" alt="" width="160" height="160" loading="lazy" decoding="async"></span><span class="phl-tx"><b class="wide" data-i18n="ph.link">See photos of our tires</b><small data-i18n="ph.linksub">15 tires. Tap any photo to see it bigger.</small></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 4.5 15.5 10 10 15.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></a>
     <div class="stock">
       <div class="srow"><div class="sz wide">205/55R16</div><div class="tires"><button type="button" class="tchip" data-k="a1"><svg class="ti" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><use href="#tire"/></svg><span class="tx"><b>Leao</b><span>Lion Sport HP3</span></span></button><button type="button" class="tchip" data-k="a2"><svg class="ti" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><use href="#tire"/></svg><span class="tx"><b>Lexani</b><span>LXTR-203</span><small data-i18n="stk.w50">50K mile warranty</small></span></button><button type="button" class="tchip" data-k="a3"><svg class="ti" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><use href="#tire"/></svg><span class="tx"><b>Nexen</b><span>N&#x27;Blue 4Season 2</span><small data-i18n="stk.w70">70K mile warranty</small></span></button></div></div>
       <div class="srow"><div class="sz wide">225/60R16</div><div class="tires"><button type="button" class="tchip" data-k="b1"><svg class="ti" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><use href="#tire"/></svg><span class="tx"><b>Leao</b><span>Lion Sport HP3</span></span></button><button type="button" class="tchip" data-k="b2"><svg class="ti" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><use href="#tire"/></svg><span class="tx"><b>Lexani</b><span>LXTR-203</span><small data-i18n="stk.w50">50K mile warranty</small></span></button><button type="button" class="tchip" data-k="b3"><svg class="ti" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><use href="#tire"/></svg><span class="tx"><b>Nexen</b><span>N&#x27;Blue 4Season 2</span></span></button></div></div>
@@ -593,33 +630,6 @@ footer a { color: var(--board-fg); }
         <button class="go" type="button" id="tp-quote"><span data-i18n="tp.quote">Get a price on this tire</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 4.5 15.5 10 10 15.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></button>
       </div>
     </dialog>
-  </div>
-</section>
-
-<section class="sec photos" id="photos">
-  <div class="wrap">
-    <div class="head">
-      <h2 data-i18n="ph.title">See the tires up close</h2>
-      <p data-i18n="ph.sub">Tap a photo to see it bigger. Photos come from the tire makers. We sell the tires only, wheels are not included.</p>
-    </div>
-    <div class="pgrid" id="pgrid">
-      <button type="button" class="pcard" data-g="lexani-lxtr-203"><span class="ph-stage"><img src="tires/lexani-lxtr-203-480.webp" srcset="tires/lexani-lxtr-203-480.webp 480w, tires/lexani-lxtr-203.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Lexani LXTR-203"></span><span class="pc-tx"><span class="pc-b">Lexani</span><span class="pc-m">LXTR-203</span><span class="pc-t" data-i18n="pt.touring">Touring</span><span class="pc-sz">205/55R16 &middot; 225/60R16</span></span></button>
-      <button type="button" class="pcard" data-g="leao-lion-sport-hp3"><span class="ph-stage"><img src="tires/leao-lion-sport-hp3-480.webp" srcset="tires/leao-lion-sport-hp3-480.webp 480w, tires/leao-lion-sport-hp3.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Leao Lion Sport HP3"></span><span class="pc-tx"><span class="pc-b">Leao</span><span class="pc-m">Lion Sport HP3</span><span class="pc-t" data-i18n="pt.sport">Sport</span><span class="pc-sz">205/55R16 &middot; 225/60R16 &middot; 225/65R17</span></span></button>
-      <button type="button" class="pcard" data-g="nexen-nblue-4season-2"><span class="ph-stage"><img src="tires/nexen-nblue-4season-2-480.webp" srcset="tires/nexen-nblue-4season-2-480.webp 480w, tires/nexen-nblue-4season-2.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Nexen N&#x27;Blue 4Season 2"></span><span class="pc-tx"><span class="pc-b">Nexen</span><span class="pc-m">N&#x27;Blue 4Season 2</span><span class="pc-t" data-i18n="pt.allweather">All-weather</span><span class="pc-sz">205/55R16 &middot; 225/60R16</span></span></button>
-      <button type="button" class="pcard" data-g="nexen-nfera-au7"><span class="ph-stage"><img src="tires/nexen-nfera-au7-480.webp" srcset="tires/nexen-nfera-au7-480.webp 480w, tires/nexen-nfera-au7.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Nexen N&#x27;Fera AU7"></span><span class="pc-tx"><span class="pc-b">Nexen</span><span class="pc-m">N&#x27;Fera AU7</span><span class="pc-t" data-i18n="pt.sport">Sport</span><span class="pc-sz">215/55R17</span></span></button>
-      <button type="button" class="pcard" data-g="jk-elanzo-touring"><span class="ph-stage"><img src="tires/jk-elanzo-touring-480.webp" srcset="tires/jk-elanzo-touring-480.webp 480w, tires/jk-elanzo-touring.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="JK Tyre Elanzo Touring"></span><span class="pc-tx"><span class="pc-b">JK Tyre</span><span class="pc-m">Elanzo Touring</span><span class="pc-t" data-i18n="pt.touring">Touring</span><span class="pc-sz">225/65R17</span></span></button>
-      <button type="button" class="pcard" data-g="mastertrack-m-trac-cuv"><span class="ph-stage"><img src="tires/mastertrack-m-trac-cuv-480.webp" srcset="tires/mastertrack-m-trac-cuv-480.webp 480w, tires/mastertrack-m-trac-cuv.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Mastertrack M-Trac CUV"></span><span class="pc-tx"><span class="pc-b">Mastertrack</span><span class="pc-m">M-Trac CUV</span><span class="pc-t" data-i18n="pt.suv">SUV / crossover</span><span class="pc-sz">225/65R17</span></span></button>
-      <button type="button" class="pcard" data-g="nexen-roadian-gtx"><span class="ph-stage"><img src="tires/nexen-roadian-gtx-480.webp" srcset="tires/nexen-roadian-gtx-480.webp 480w, tires/nexen-roadian-gtx.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Nexen Roadian GTX"></span><span class="pc-tx"><span class="pc-b">Nexen</span><span class="pc-m">Roadian GTX</span><span class="pc-t" data-i18n="pt.suv">SUV / crossover</span><span class="pc-sz">235/65R17 &middot; 235/60R18</span></span></button>
-      <button type="button" class="pcard" data-g="rbp-guarantor-ht"><span class="ph-stage"><img src="tires/rbp-guarantor-ht-480.webp" srcset="tires/rbp-guarantor-ht-480.webp 480w, tires/rbp-guarantor-ht.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="RBP Guarantor HT"></span><span class="pc-tx"><span class="pc-b">RBP</span><span class="pc-m">Guarantor HT</span><span class="pc-t" data-i18n="pt.ht">Highway H/T</span><span class="pc-sz">235/65R17</span></span></button>
-      <button type="button" class="pcard" data-g="leao-lion-sport-ht"><span class="ph-stage"><img src="tires/leao-lion-sport-ht-480.webp" srcset="tires/leao-lion-sport-ht-480.webp 480w, tires/leao-lion-sport-ht.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Leao Lion Sport H/T"></span><span class="pc-tx"><span class="pc-b">Leao</span><span class="pc-m">Lion Sport H/T</span><span class="pc-t" data-i18n="pt.ht">Highway H/T</span><span class="pc-sz">265/70R17</span></span></button>
-      <button type="button" class="pcard" data-g="mastertrack-m-trac-ht"><span class="ph-stage"><img src="tires/mastertrack-m-trac-ht-480.webp" srcset="tires/mastertrack-m-trac-ht-480.webp 480w, tires/mastertrack-m-trac-ht.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Mastertrack M-Trac HT"></span><span class="pc-tx"><span class="pc-b">Mastertrack</span><span class="pc-m">M-Trac HT</span><span class="pc-t" data-i18n="pt.ht">Highway H/T</span><span class="pc-sz">LT265/70R17</span></span></button>
-      <button type="button" class="pcard" data-g="leao-lion-sport-at"><span class="ph-stage"><img src="tires/leao-lion-sport-at-480.webp" srcset="tires/leao-lion-sport-at-480.webp 480w, tires/leao-lion-sport-at.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Leao Lion Sport A/T"></span><span class="pc-tx"><span class="pc-b">Leao</span><span class="pc-m">Lion Sport A/T</span><span class="pc-t" data-i18n="pt.at">All-terrain A/T</span><span class="pc-sz">265/70R17</span></span></button>
-      <button type="button" class="pcard" data-g="zeetex-at1000"><span class="ph-stage"><img src="tires/zeetex-at1000-480.webp" srcset="tires/zeetex-at1000-480.webp 480w, tires/zeetex-at1000.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Zeetex AT1000"></span><span class="pc-tx"><span class="pc-b">Zeetex</span><span class="pc-m">AT1000</span><span class="pc-t" data-i18n="pt.at">All-terrain A/T</span><span class="pc-sz">265/70R17</span></span></button>
-      <button type="button" class="pcard" data-g="amp-terrain-pro-at"><span class="ph-stage"><img src="tires/amp-terrain-pro-at-480.webp" srcset="tires/amp-terrain-pro-at-480.webp 480w, tires/amp-terrain-pro-at.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="AMP Terrain Pro A/T"></span><span class="pc-tx"><span class="pc-b">AMP</span><span class="pc-m">Terrain Pro A/T</span><span class="pc-t" data-i18n="pt.at">All-terrain A/T</span><span class="pc-sz">LT265/70R17</span></span></button>
-      <button type="button" class="pcard" data-g="amp-terrain-attack-at"><span class="ph-stage"><img src="tires/amp-terrain-attack-at-480.webp" srcset="tires/amp-terrain-attack-at-480.webp 480w, tires/amp-terrain-attack-at.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="AMP Terrain Attack A/T"></span><span class="pc-tx"><span class="pc-b">AMP</span><span class="pc-m">Terrain Attack A/T</span><span class="pc-t" data-i18n="pt.at">All-terrain A/T</span><span class="pc-sz">LT265/70R17</span></span></button>
-      <button type="button" class="pcard" data-g="crosswind-mt"><span class="ph-stage"><img src="tires/crosswind-mt-480.webp" srcset="tires/crosswind-mt-480.webp 480w, tires/crosswind-mt.webp 900w" sizes="(max-width: 720px) 62vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Crosswind M/T"></span><span class="pc-tx"><span class="pc-b">Crosswind</span><span class="pc-m">M/T</span><span class="pc-t" data-i18n="pt.mt">Mud-terrain M/T</span><span class="pc-sz">LT265/70R17</span></span></button>
-    </div>
-    <p class="pswipe" aria-hidden="true"><span data-i18n="ph.swipe">Swipe to see more tires</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 4.5 15.5 10 10 15.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></p>
     <dialog class="tpop pv" id="pv" aria-labelledby="pv-model">
       <div class="pv-in">
         <div class="pv-stage ph-stage" id="pv-stage">
@@ -802,6 +812,11 @@ footer a { color: var(--board-fg); }
     'tp.art': 'El dibujo muestra el estilo de la banda, no la llanta exacta. Pídanos y le mandamos una foto real por texto.',
     'tp.quote': 'Pedir precio de esta llanta',
     'ph.title': 'Mire las llantas de cerca',
+    'ph.link': 'Vea fotos de nuestras llantas',
+    'ph.linksub': '15 llantas. Toque cualquier foto para verla más grande.',
+    'ph.back': 'Volver a la página principal',
+    'pv.common': 'Común en',
+    'pv.sizehint2': 'Toque una medida para pedir precio en esa medida.',
     'ph.sub': 'Toque una foto para verla más grande. Las fotos son de los fabricantes de las llantas. Solo vendemos las llantas, no incluyen rines.',
     'ph.swipe': 'Deslice para ver más llantas',
     'pv.sizes': 'Medidas que tenemos',
@@ -913,6 +928,19 @@ footer a { color: var(--board-fg); }
   document.getElementById('n-install').addEventListener('change', syncTireFields);
   syncTireFields();
 
+  /* Coming from the tire photos page: ?tire=...&size=... fills the quote form (letters, numbers and / ' . - only) */
+  try {
+    var qp = new URLSearchParams(location.search), qTire = qp.get('tire'), qSize = qp.get('size');
+    if (qTire || qSize) {
+      var qClean = function (v, n) { return String(v || '').replace(/[^A-Za-z0-9 '\/.\-]/g, '').slice(0, n); };
+      document.getElementById('n-tires').checked = true;
+      if (qTire) { document.getElementById('q-tire').value = qClean(qTire, 60); document.getElementById('q-pref').value = 'brand'; }
+      if (qSize) document.getElementById('q-size').value = qClean(qSize, 16);
+      syncTireFields();
+      if (history.replaceState) history.replaceState(null, '', location.pathname + '#quote');
+    }
+  } catch (e) {}
+
   Array.prototype.forEach.call(document.querySelectorAll('[data-pref]'), function (a) {
     a.addEventListener('click', function () {
       document.getElementById('n-tires').checked = true;
@@ -972,10 +1000,11 @@ footer a { color: var(--board-fg); }
 
   /* Tire photos: gallery cards and the photo viewer (swipe or arrows to browse) */
   var pv = document.getElementById('pv');
-  var PV = Array.prototype.map.call(document.querySelectorAll('.pcard'), function (c) {
-    var g = c.getAttribute('data-g');
-    var keys = Object.keys(TP.tires).filter(function (k) { return TP.tires[k].p === g; });
-    return { g: g, keys: keys, t: TP.tires[keys[0]] };
+  var PV = [];
+  Object.keys(TP.tires).forEach(function (k) {
+    var t = TP.tires[k]; if (!t.p) return;
+    for (var i = 0; i < PV.length; i++) if (PV[i].g === t.p) { PV[i].keys.push(k); return; }
+    PV.push({ g: t.p, keys: [k], t: t });
   });
   var pvI = 0;
   function pvFill() {
@@ -1001,9 +1030,6 @@ footer a { color: var(--board-fg); }
   }
   function pvClose() { if (typeof pv.close === 'function') pv.close(); else pv.removeAttribute('open'); }
   function pvGo(d) { pvI = (pvI + d + PV.length) % PV.length; pvFill(); }
-  Array.prototype.forEach.call(document.querySelectorAll('.pcard'), function (c) {
-    c.addEventListener('click', function () { pvOpen(c.getAttribute('data-g')); });
-  });
   document.getElementById('tp-art').addEventListener('click', function (e) {
     var b = e.target.closest ? e.target.closest('.tp-ph') : null;
     if (b) pvOpen(b.getAttribute('data-g'));
@@ -1097,8 +1123,8 @@ footer a { color: var(--board-fg); }
   });
 })();
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
 <script>
 /* Motion: a tire track is laid across the page as it opens, and rolls on as you scroll.
    Everything is visible without this script; nothing runs for people who ask for reduced motion. */
