@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ZVwchc19QlvIViHIS8awAL4cX4lzNSMp4ksxQIQ4x3A='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ERoxrfC4PnHo9sKpXK88HnY8BkQgfZ3QcDi6w63mQio='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://script.google.com https://script.googleusercontent.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="Photos of the tires we carry at Rivera's Auto Repair in Lilburn, GA. Tap a tire to see it bigger and get a price by text. Hablamos español.">
 <meta name="theme-color" content="#f1f0ec">
@@ -295,6 +295,18 @@ a.brand { color: inherit; text-decoration: none; }
   .phlink > svg { width: 38px; height: 38px; padding: 9px; }
 }
 @media (prefers-reduced-motion: reduce) { .phlink > svg { transition: none; } }
+/* "way more tires" band: the list is only a sample of what the shop can get */
+.more { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px 28px; align-items: center; margin: 0 0 24px; padding: 22px 26px; background: var(--board); color: var(--board-fg); }
+.more-n { margin: 0; font-size: clamp(3rem, 7.5vw, 5.2rem); font-weight: 900; line-height: 0.85; letter-spacing: -0.02em; color: var(--tag); white-space: nowrap; }
+.more-h { margin: 0 0 6px; font-size: clamp(1.05rem, 2.2vw, 1.4rem); line-height: 1.05; }
+.more-tx p:last-child { margin: 0; color: var(--board-muted); }
+.more-go { display: inline-flex; align-items: center; gap: 8px; padding: 13px 16px; background: var(--tag); color: var(--tag-ink); font-weight: 800; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+.more-go svg { width: 18px; height: 18px; transition: transform 0.25s var(--out); }
+.more-go:hover, .more-go:focus-visible { background: #fffdf2; }
+.more-go:hover svg, .more-go:focus-visible svg { transform: translateX(4px); }
+.photospage .more { margin: 28px 0 0; }
+@media (max-width: 720px) { .more { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 20px 18px; } .more-go { justify-self: start; } }
+@media (prefers-reduced-motion: reduce) { .more-go svg { transition: none; } }
 .promise { margin-top: 24px; max-width: 52em; color: var(--muted); }
 .promise strong { color: var(--fg); }
 
@@ -463,6 +475,11 @@ footer a { color: var(--board-fg); }
       <a class="pcard" href="../tires/amp-terrain-attack-at.webp" data-g="amp-terrain-attack-at"><span class="ph-stage"><img src="../tires/amp-terrain-attack-at-480.webp" srcset="../tires/amp-terrain-attack-at-480.webp 480w, ../tires/amp-terrain-attack-at.webp 900w" sizes="(max-width: 720px) 46vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="AMP Terrain Attack A/T"></span><span class="pc-tx"><span class="pc-b">AMP</span><span class="pc-m">Terrain Attack A/T</span><span class="pc-t" data-i18n="pt.at">All-terrain A/T</span><span class="pc-sz">LT265/70R17</span></span></a>
       <a class="pcard" href="../tires/crosswind-mt.webp" data-g="crosswind-mt"><span class="ph-stage"><img src="../tires/crosswind-mt-480.webp" srcset="../tires/crosswind-mt-480.webp 480w, ../tires/crosswind-mt.webp 900w" sizes="(max-width: 720px) 46vw, (max-width: 1000px) 31vw, 220px" width="480" height="480" loading="lazy" decoding="async" alt="Crosswind M/T"></span><span class="pc-tx"><span class="pc-b">Crosswind</span><span class="pc-m">M/T</span><span class="pc-t" data-i18n="pt.mt">Mud-terrain M/T</span><span class="pc-sz">LT265/70R17</span></span></a>
     </div>
+    <div class="more">
+      <p class="more-n wide" aria-hidden="true">1,000+</p>
+      <div class="more-tx"><p class="more-h wide" data-i18n="more.h2">Don't see your tire?</p><p data-i18n="more.p2">These 15 are just a few. We can get over 1,000 different tires in almost any size and brand. Ask us and we'll tell you what we can get.</p></div>
+      <a class="more-go" href="../#quote"><span data-i18n="more.go">Ask about your tire</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h12M10 4.5 15.5 10 10 15.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></a>
+    </div>
     <dialog class="tpop pv" id="pv" aria-labelledby="pv-model">
       <div class="pv-in">
         <div class="pv-stage ph-stage" id="pv-stage">
@@ -529,14 +546,19 @@ footer a { color: var(--board-fg); }
     'sent.title': 'Último paso: envíenoslo', 'sent.title2': 'Solicitud recibida', 'sent.how': 'Toque un botón. Su app de textos o de correo se abre con su solicitud ya escrita. Solo presione enviar.', 'sent.sms': 'Enviar por texto', 'sent.mail': 'Enviar por correo', 'sent.after': 'Le mandamos el precio por texto lo más pronto posible durante el horario del taller.', 'sent.thanks': 'Gracias,',
     'sent.body': 'Le mandaremos el precio lo más pronto posible durante el horario del taller al',
     'sent.again': 'Enviar otra solicitud',
-    'stk.title': 'Llantas populares que manejamos',
-    'stk.sub': 'Toque una llanta para ver cómo es, para qué es buena y en qué carros se usa esa medida. El precio depende de la llanta, así que le mandamos la cotización por texto.',
-    'stk.note': '<strong>Disponibles al 15 de noviembre de 2026.</strong> El inventario cambia cada día. ¿No ve su medida o marca? Pregúntenos de todos modos. Le decimos si la conseguimos o le ofrecemos llantas parecidas.',
+    'stk.title': 'Ofertas y llantas populares',
+    'stk.sub': 'Algunas de nuestras ofertas actuales y llantas más populares. Toque una para ver cómo es, para qué es buena y en qué carros se usa esa medida. El precio depende de la llanta, así que le mandamos la cotización por texto.',
+    'stk.note': '<strong>Disponibles al 15 de noviembre de 2026.</strong> El inventario y las ofertas cambian cada día. ¿No ve su medida o marca? Pregúntenos de todos modos. Le decimos si la conseguimos o le ofrecemos llantas parecidas.',
     'tp.fits': 'Esta medida es común en',
     'tp.check': 'La medida cambia según el año y la versión. Revise la medida en el costado de su llanta, o mándenos su carro y nosotros la revisamos.',
     'tp.art': 'El dibujo muestra el estilo de la banda, no la llanta exacta. Pídanos y le mandamos una foto real por texto.',
     'tp.quote': 'Pedir precio de esta llanta',
     'ph.title': 'Mire las llantas de cerca',
+    'more.h': 'Mucho más de lo que ve aquí',
+    'more.p': 'Estas son solo algunas de nuestras ofertas. Podemos conseguir más de 1,000 llantas diferentes, en casi cualquier medida y marca. ¿No ve la suya? Pregúntenos.',
+    'more.go': 'Pregunte por su llanta',
+    'more.h2': '¿No ve su llanta?',
+    'more.p2': 'Estas 15 son solo algunas. Podemos conseguir más de 1,000 llantas diferentes, en casi cualquier medida y marca. Pregúntenos y le decimos qué podemos conseguir.',
     'ph.link': 'Vea fotos de nuestras llantas',
     'ph.linksub': '15 llantas. Toque cualquier foto para verla más grande.',
     'ph.back': 'Volver a la página principal',
